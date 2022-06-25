@@ -1,5 +1,9 @@
 name: Laravel
 
+
+defaults:
+      run:
+        working-directory: TurquesaCommerce
 on:
   push:
     branches: [ "main" ]
@@ -30,6 +34,6 @@ jobs:
         touch database/database.sqlite
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
-        DB_CONNECTION: sqlite
-        DB_DATABASE: database/database.sqlite
+        DB_CONNECTION: mysql
+        DB_DATABASE: turquesa
       run: vendor/bin/phpunit
