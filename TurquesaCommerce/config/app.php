@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'br',
+    'locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'pt-BR',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY',"v8y/B?E(H+MbQeThWmZq4t7w9zC&F)J"),
+    'key' => env('APP_KEY', "v8y/B?E(H+MbQeThWmZq4t7w9zC&F)J"),
 
     'cipher' => 'AES-256-CBC',
 
