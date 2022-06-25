@@ -69,7 +69,7 @@ return [
     |
     */
 
-    'timezone' => '	America/Sao_Paulo',
+    'timezone' => 'America/Sao_Paulo',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY',"v8y/B?E(H+MbQeThWmZq4t7w9z$C&F)J"),
+    'key' => env('APP_KEY',"v8y/B?E(H+MbQeThWmZq4t7w9zC&F)J"),
 
     'cipher' => 'AES-256-CBC',
 
