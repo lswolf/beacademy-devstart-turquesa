@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'Test'),
+    'env' => env('APP_ENV', 'debug'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'debug' => (bool) env('APP_DEBUG', true),
+    'debug' => (bool) env('APP_DEBUG', True),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://127.0.0.1:8000'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'br',
+    'locale' => 'pt',
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY',"v8y/B?E(H+MbQeThWmZq4t7w9zC&F)J"),
+    'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
 
