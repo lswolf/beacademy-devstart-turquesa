@@ -1,0 +1,70 @@
+.account-profile h1.header {
+	text-transform: uppercase;
+	text-align: start;
+	font-weight: normal;
+	padding: 0.5rem 1rem;
+	color: var(--ai-secondary);
+	border-bottom: 1px solid var(--ai-secondary);
+}
+
+.account-profile-address h2 {
+	margin: 8px 15px;
+}
+
+.account-profile-address .row {
+	padding: 0 1rem;
+}
+
+.account-profile-address .panel {
+	box-shadow: none;
+	border: 1px solid var(--ai-tertiary);
+	margin: 0.5rem 0;
+}
+
+.account-profile-address .panel-heading {
+	padding: 15px;
+}
+
+.account-profile-address .panel-heading .act-show,
+.account-profile-address .panel-heading .act-hide {
+	float: right;
+}
+
+[dir="rtl"] .account-profile-address .panel-heading .act-show,
+[dir="rtl"] .account-profile-address .panel-heading .act-hide {
+	float: left;
+}
+
+.account-profile-address .panel-heading .act-show:after {
+	font: normal normal normal 14px/1 bootstrap-icons;
+	content: "\f4cb";
+	font-size: 130%;
+}
+
+.account-profile-address .panel-heading .act-hide:after {
+	font: normal normal normal 14px/1 bootstrap-icons;
+	content: "\f62a";
+	font-size: 130%;
+}
+
+.account-profile .form-list .error,
+.account-profile .form-list .error a {
+	color: var(--ai-danger);
+}
+
+.account-profile .form-list .error input,
+.account-profile .form-list .error select {
+	border: 1px solid var(--ai-danger);
+}
+
+.account-profile .form-item.mandatory label {
+	font-weight: bold;
+}
+
+.account-profile .form-item label {
+	margin: 0.875rem 0;
+}
+
+.account-profile .form-item .form-control {
+	margin: 0.5rem 0;
+}
