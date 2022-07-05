@@ -21,9 +21,8 @@ return new class extends Migration
             $table->string('url', 255);
             $table->decimal('cost_price', 10, 2);
             $table->decimal('sale_price', 10, 2);
-            $table->integer('category_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned();
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 
