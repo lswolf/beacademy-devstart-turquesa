@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-//use App\Http\Requests\StoreUpdateProductFormRequest;
 
 class ProductController extends Controller
 {
@@ -17,15 +16,15 @@ class ProductController extends Controller
     {
         $products = Product::paginate(10);
 
-        return view('products.index', compact('products'));
+        return view('product.index', compact('products'));
     }
 
     public function show($id)
     {
         if(!$product = Product::find($id))
-            return redirect()->route('product.index');
+            return redirect()->route('products.index');
 
-        $title = 'Livro: ' . $product->name;
+        $title = 'e-Book: ' . $product->name;
 
         return view('product.show', compact('product', 'title'));
     }
@@ -47,36 +46,41 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->save();
 
-        return view('product.create');
+        return redirect()->route('products.index');
     }
 
     public function edit($id)
     {
+        $product = Product::find($id);
         if(!$product = $this->model->find($id))
-            return redirect()->route('product.index');
+        {
+            return redirect()->route('products.index');
+        }
 
         return view('product.edit', compact('product'));
     }
 
-    public function update(StoreUpdateProductFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $product = Product::find($id);
         if(!$product = $this->model->find($id))
-            return redirect()->route('product.index');
+            return redirect()->route('products.index');
 
         $data = $request->all();
 
         $product->update($data);
 
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 
     public function delete($id)
     {
+        $product = Product::find($id);
         if(!$product = $this->model->find($id))
-            return redirect()->route('product.index');
+            return redirect()->route('products.index');
 
         $product->delete();
 
-        return redirect()->route('product.index');
+        return redirect()->route('products.index');
     }
 }

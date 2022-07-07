@@ -14,11 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::match(['get', 'post'], '/product/create', [ProductController::class, 'create'])->name('product.create');
-Route::match(['get', 'post'], '/product/store', [ProductController::class, 'store'])->name('product.store');
-Route::match(['get', 'post'], '/product/show', [ProductController::class, 'show'])->name('product.show');
-Route::match(['get', 'post'], '/product/edit', [ProductController::class, 'edit'])->name('product.edit');
-Route::delete('/product/delete', [ProductController::class, 'delete'])->name('product.delete');
+Route::delete('/products/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::match(['get', 'post'], '/products/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+Route::match(['get', 'post'], '/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::match(['get', 'post'], '/products/store', [ProductController::class, 'store'])->name('products.store');
+Route::match(['get', 'post'], '/products/', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/', function () {
     return view('welcome');
