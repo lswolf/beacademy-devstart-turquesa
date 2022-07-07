@@ -1,6 +1,5 @@
 <?php
 
- feature/alteracoes_views
 
 use App\Http\Controllers\UserController;
 
