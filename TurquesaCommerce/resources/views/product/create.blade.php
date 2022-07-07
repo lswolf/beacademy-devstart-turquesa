@@ -3,8 +3,12 @@
 @section('content')
 
     <div class="container">
-        <h1>Cadastrar Produto</h1>
-        <a href="{{ route('products.index') }}">Lista de Produtos</a>
+        <br>
+        <h1>Gerenciador</h1>
+        <a class="btn btn-primary" href="{{ route('products.index') }}" role="button" >Lista de Produtos</a>
+        <a class="btn btn-primary" href="{{ route('category.index') }}"role="button" >Lista de Categorias</a>
+        <a class="btn btn-primary" href="{{ route('users.index') }}"role="button" >Lista de Usuários</a>
+        <br>
         <br>
         <form action="{{ route('products.store') }}" method="POST">
             @csrf
