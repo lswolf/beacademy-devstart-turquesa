@@ -1,0 +1,57 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-main{
+  background-color: #07C2FE;
+}
+.nav-main nav div ul li a{
+  color: #ffffff;
+  font-weight: 700px;
+  font-size: 20px;
+}
+
+.logo{
+  margin-top: 25px;
+}
+.group{
+	align-items: center;
+}
+.group button{
+  border: none;
+  background-color: #07C2FE;
+}
+.group button img{
+width: 30px;
+height: 30px;
+}
+.cart-img{
+  margin-left: 30px;
+  margin-bottom: 4px;
+}
+.perfil-img li a img{
+  width:37px ; 
+  height:37px; 
+  margin-top:28px ; 
+  margin-left:20px;
+}
+.perfil-img li a div p{
+  color: #ffffff;
+  margin-top: 10px;
+ 
+}
+.dropdown:hover .dropdown-menu {
+	display: block;
+	position: absolute;
+	transform: translate3d(20px, 60px, 100px); 
+	top: 5px;
+	left: 0px;
+	will-change: transform;
+}
+.dropdown {
+	display: inline-block; 
+	list-style: none; 
+}

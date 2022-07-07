@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::delete('/products/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::match(['get', 'post'], '/products/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+Route::match(['get', 'post'], '/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::match(['get', 'post'], '/products/store', [ProductController::class, 'store'])->name('products.store');
+Route::match(['get', 'post'], '/products/', [ProductController::class, 'index'])->name('products.index');
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.home');
 });
 
 Route::middleware([
@@ -26,6 +35,7 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
 });
 
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
@@ -34,3 +44,6 @@ Route::post('/user', [UserController::class, 'store'])->name('users.store');
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 Route::put('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
 Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
+
