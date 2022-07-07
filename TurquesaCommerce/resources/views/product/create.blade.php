@@ -1,5 +1,10 @@
+@extends('layouts.main')
+@section('title', 'Cadastrar Produto')
+@section('content')
+
     <div class="container">
         <h1>Cadastrar Produto</h1>
+        <a href="{{ route('products.index') }}">Lista de Produtos</a>
         <br>
         <form action="{{ route('products.store') }}" method="POST">
             @csrf
@@ -34,3 +39,5 @@
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>
+
+@endsection

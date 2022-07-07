@@ -1,6 +1,11 @@
 <?php
 
+ feature/alteracoes_views
+
+use App\Http\Controllers\UserController;
+
 use App\Http\Controllers\CategoryController;
+
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +28,7 @@ Route::match(['get', 'post'], '/products/store', [ProductController::class, 'sto
 Route::match(['get', 'post'], '/products/', [ProductController::class, 'index'])->name('products.index');
 
 Route::get('/', function () {
-    return view('layouts.main');
+    return view('layouts.home');
 });
 
 Route::prefix('categoria')->group(function () {
@@ -45,4 +50,15 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
 });
+
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
+Route::post('/user', [UserController::class, 'store'])->name('users.store');
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::put('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
+Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+
+
+

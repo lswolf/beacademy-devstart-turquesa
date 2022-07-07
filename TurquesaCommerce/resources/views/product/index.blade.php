@@ -1,3 +1,8 @@
+@extends('layouts.main')
+@section('title', 'Cadastrar Produto')
+@section('content')
+
+<div class="container">
     <h1>Listagem de Produtos</h1>
     <a href="{{ route('products.create') }}" class="btn btn-outline-dark">Novo Produto</a>
 
@@ -18,11 +23,7 @@
         <tbody class="text-center">
         @foreach($products as $product)
             <tr>
-                @if($product->photo)
-                    <th><img src="{{ asset('storage/' . $product->photo) }}" width="100px" height="100px" class="rounded" alt=""></th>
-                @else
-                    <th><img src="{{ asset('storage/profile/avatar.jpg') }} " width="100px" height="100px" class="rounded" alt=""></th>
-                @endif
+                <td><img style="width:50px;" src="{{ $product->photo }}" alt=""></td>
                 <th scope="row">{{ $product->id }}</th>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
@@ -45,3 +46,5 @@
     <div class="justify-content-center pagination">
         {{ $products->links('pagination::bootstrap-4') }}
     </div>
+</div>
+@endsection

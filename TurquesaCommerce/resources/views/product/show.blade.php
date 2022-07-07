@@ -1,3 +1,7 @@
+@extends('layouts.main')
+@section('title', 'Lista de Produtos')
+@section('content')
+
     <h1>Produto: {{ $product->name }}</h1>
     <table class="table">
         <thead>
@@ -25,3 +29,5 @@
             </tr>
         </tbody>
     </table>
+
+@endsection

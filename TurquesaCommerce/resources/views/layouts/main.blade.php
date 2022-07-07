@@ -31,7 +31,7 @@
 
 
           <li class="nav-item">
-            <a href="" class="nav-link">Criar produtos</a>
+            <a href="{{ route('products.create') }}" class="nav-link">Criar produtos</a>
           </li>
 
 
