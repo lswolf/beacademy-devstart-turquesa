@@ -1,7 +1,5 @@
 <?php
 
- feature/alteracoes_views
-
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CategoryController;
