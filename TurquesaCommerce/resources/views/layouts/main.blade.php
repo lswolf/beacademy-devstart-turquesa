@@ -14,7 +14,7 @@
 
 <body>
   <header class="nav-main">
-    <nav class="navbar navbar-expand-lg navbar-light " style="padding:30px">
+    <nav class="navbar navbar-expand-lg navbar-light " style="padding:13px">
       <div class="collapse navbar-collapse d-flex justify-content-around" id="navbar">
         <a href="/" class="navbar-brand">
           <img src="/img/logo.svg" alt="">
@@ -74,7 +74,11 @@
 
 
   @yield('content')
-
+  <footer class="d-flex align-items-center justify-content-center">
+    <p>Copyright &copy 2022 Todos os direitos reservados</p>
+  </footer>
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 
 </html>

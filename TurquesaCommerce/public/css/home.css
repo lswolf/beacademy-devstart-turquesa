@@ -1,0 +1,29 @@
+.banner img{
+  width:1349px ; 
+  height:368px; 
+}
+.section-category{
+margin-top: 40px;
+}
+.info-collection{
+  width: 600px; 
+}
+.info-collection2{
+ width: 600px; 
+ margin-left:10px;
+}
+.section-books .filho{
+ width:267px ; 
+ height:450px; 
+ background-color:#ffff; 
+ border-radius:5px;
+}
+.section-books .irma{
+  padding:20px 0px 0px 50px;
+}
+.section-books .irma a{
+ font-size: 16px; 
+ text-decoration:none; 
+ color:black;
+
+}
