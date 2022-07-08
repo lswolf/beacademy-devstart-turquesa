@@ -10,6 +10,17 @@
         <a class="btn btn-primary" href="{{ route('users.index') }}"role="button" >Lista de Usuários</a>
         <br>
         <br>
+        
+        @if($errors->any())
+            <div class="alert alert-danger" role="alert">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach 
+            </div>
+        @endif
+
+
+        <br>
         <form action="{{ route('products.store') }}" method="POST">
             @csrf
             <div class="mb-3">
