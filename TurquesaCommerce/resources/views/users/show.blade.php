@@ -13,7 +13,7 @@ $(function() {
 @section('content')
 <div class="container">
   @foreach($users as $user)
-
+  @if($user->user->id == $id)
   <h1>Alterar dados de {{$user->user->name}} </h1>
   <a href="{{route('users.index')}}" class="btn btn-outline-dark">Voltar para a lista</a>
   <form action="{{ route('users.update_user',$user->id) }}" method="post">
@@ -53,7 +53,7 @@ $(function() {
     @method('delete')
     <button type="submit">Deletar</button>
   </form>
-
+  @endif
   @endforeach
 </div>
 @endsection

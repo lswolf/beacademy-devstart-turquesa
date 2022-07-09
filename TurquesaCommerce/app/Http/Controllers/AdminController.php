@@ -18,8 +18,9 @@ class AdminController extends Controller
     }
     public function show($id)
     {
+
         $users = Client::with('user')->get();
-        return view('users.show', compact('users'));
+        return view('users.show', compact('users', 'id'));
     }
     public function update_user(Request $request, $id)
     {
