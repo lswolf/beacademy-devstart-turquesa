@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/css/style.css">
 
   <title>@yield('title')</title>
+  @yield('scriptsjs')
 </head>
 
 <body>
@@ -55,10 +56,27 @@
                   <p style="font-size:15px ; margin-left:4px;">Entre <br> ou <br> cadastre</p>
                 </div>
               </a>
+              @guest
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
-                <a class="dropdown-item" href="">entrar</a>
-                <a class="dropdown-item" href="">cadastrar</a>
+
+                <a class="dropdown-item" href="/login">entrar</a>
+                <a class="dropdown-item" href="/register">cadastrar</a>
+
               </div>
+              @endguest
+              @auth
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
+                <a class="dropdown-item" href="/users/perfil">perfil</a>
+                <form class="dropdown-item" action="/logout" method="post">
+                  @csrf
+                  <a href=" /logout" class="nav-link" onclick="event.preventDefault();
+                   this.closest('form').submit();"> Sair</a>
+                </form>
+
+
+
+              </div>
+              @endauth
             </li>
           </div>
           <div class="cart-img">

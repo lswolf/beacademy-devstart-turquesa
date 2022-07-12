@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('carts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->integer('client_id')->unsigned()->nullable(false); // coluna da chave estrangeira
             $table->timestamps();
         });
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('carrinhos');
+        Schema::dropIfExists('carts');
     }
 };

@@ -2,23 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 use App\Models\User;
+<<<<<<< HEAD
+use App\Http\Controllers\Auth;
+
+use PhpParser\Node\Stmt\TryCatch;
+=======
 use App\Http\Requests\StoreUpdateUserFormRequest;
+>>>>>>> main
 
 class UserController extends Controller
 {
-    public function index()
+
+    public function profile()
     {
-        $users = User::all();
-        return view('users.index', compact('users'));
+        $users = Client::with('user')->get();
+
+
+        return view('users.profile', compact('users'));
     }
 
-    public function create()
+    public function profile_create()
     {
-        return view('users.create');
-    }
+        $users = Client::with('user')->get();
 
+<<<<<<< HEAD
+=======
     public function store(StoreUpdateUserFormRequest $request)
     {
         $user = new User;
@@ -28,35 +39,34 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('users.index');
     }
+>>>>>>> main
 
-    public function edit($id)
-    {
-        $user = User::find($id);
-        return ($user) ? view('users.edit', compact('user')) : redirect()->route('users.index');
+        return view('users.profile_create', compact('users'));
     }
+<<<<<<< HEAD
+    public function update(Request $request, $id)
+=======
 
     public function update(StoreUpdateUserFormRequest $request, $id)
+>>>>>>> main
     {
-        $user = User::find($id);
-        
-        if(!$user) 
-            return redirect()->route('users.index');
-        
-        $data = $request->only('name', 'email');
 
-        if($request->password)
-            $data['password'] = bcrypt($request->password);
-        
-        $user->update($data);
+        Client::findOrfail($request->id)->update($request->all());
 
-        return redirect()->route('users.index');
-        
+        return redirect()->route('users.profile');
     }
-
-    public function destroy($id)
+    public function store(Request $request)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect()->route('users.index');
+
+        $clients = new Client();
+        $clients->phone = $request->phone;
+        $clients->address = $request->address;
+        $clients->user_id = $request->user_id;
+        $clients->birth_date = $request->birth_date;
+        $clients->cpf = $request->cpf;
+
+        $clients->save();
+
+        return redirect()->route('users.profile');
     }
 }

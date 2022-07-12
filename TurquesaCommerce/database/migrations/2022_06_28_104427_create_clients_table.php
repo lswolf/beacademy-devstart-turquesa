@@ -10,25 +10,19 @@ return new class extends Migration
      * Run the migrations.
      *
      * @return void
-     */ 
+     */
     public function up()
     {
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id')->bigInteger();
-            
-            $table->boolean('admin');
-            $table->string('name', 50);
-            $table->string('email', 80);
             $table->string('phone', 20);
             $table->string('address', 200);
             $table->date('birth_date');
             $table->string('cpf', 50);
-            $table->integer('cart_id')->unsigned()->nullable(false); // coluna da chave estrangeira
-
+            $table->Integer('user_id')->unique();
             $table->timestamps();
-
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
-
     }
 
     /**
@@ -38,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('clients');
     }
 };

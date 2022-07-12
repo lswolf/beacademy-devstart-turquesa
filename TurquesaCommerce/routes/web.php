@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CategoryController;
@@ -19,16 +19,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::delete('/products/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
-Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-Route::match(['get', 'post'], '/products/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
-Route::match(['get', 'post'], '/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::match(['get', 'post'], '/products/store', [ProductController::class, 'store'])->name('products.store');
-Route::match(['get', 'post'], '/products/', [ProductController::class, 'index'])->name('products.index');
-
 Route::get('/', function () {
     return view('layouts.home');
 });
+Route::prefix('products')->group(function () {
+    Route::delete('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
+    Route::put('/{id}', [ProductController::class, 'update'])->name('products.update');
+    Route::match(['get', 'post'], '/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create');
+    Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store');
+    Route::match(['get', 'post'], '/', [ProductController::class, 'index'])->name('products.index');
+});
+
 
 Route::prefix('categoria')->group(function () {
     Route::match(['get', 'post'], '', [CategoryController::class, 'index'])->name('category.index');
@@ -39,6 +41,24 @@ Route::prefix('categoria')->group(function () {
     Route::put('/update/{id}', [CategoryController::class, 'update'])->name('category.update');
 });
 
+Route::prefix('admin')->group(function () {
+    Route::match(['get', 'post'], '/show/{id}', [AdminController::class, 'show'])->name('users.show');
+    Route::get('/users', [AdminController::class, 'index'])->name('users.index');
+    Route::put('/edituser/{id}', [AdminController::class, 'update_user'])->name('users.update_user');
+    Route::delete('/{id}', [AdminController::class, 'destroy'])->name('users.destroy');
+});
+
+
+Route::prefix('users')->group(function () {
+
+    Route::match(['get', 'post'], '/user/store', [UserController::class, 'store'])->name('users.store')->middleware('auth');
+    Route::put('/edit/{id}', [UserController::class, 'update'])->name('users.update');
+    Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
+    Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
+});
+
+
+
 
 
 Route::middleware([
@@ -47,17 +67,6 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return redirect('/');
     })->name('dashboard');
-
 });
-
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
-Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
-Route::post('/user', [UserController::class, 'store'])->name('users.store');
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::put('/users/edit/{id}', [UserController::class, 'update'])->name('users.update');
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-
-
-
