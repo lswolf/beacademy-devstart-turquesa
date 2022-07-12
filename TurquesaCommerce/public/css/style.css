@@ -1,8 +1,18 @@
+@import url('home.css');
+
 *{
   margin: 0px;
   padding: 0px;
   list-style: none;
   text-decoration: none;
+}
+body{
+  background-color: #EFEFEF;
+}
+footer{
+  height:100px; 
+  background-color:#2852C7; 
+  color:#fff;
 }
 
 .nav-main{
