@@ -12,7 +12,7 @@ $(function() {
 @section('title', 'Cadastrar Usuário')
 @section('content')
 
-<div class="container d-flex">
+<div class="container d-flex mb-5">
 
   <div class="rounded-circle">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2OVzrJlUbydcRy7-VnJVLvLGbiE9HMtH9CA&usqp=CAU" alt="">
@@ -52,10 +52,11 @@ $(function() {
 
     </form>
   </div>
-  @endif
+</div>
+@endif
 
-  @endforeach
+@endforeach
 
 
 
-  @endsection
+@endsection
