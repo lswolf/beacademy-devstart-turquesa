@@ -10,18 +10,18 @@
         <a class="btn btn-primary" href="{{ route('users.index') }}"role="button" >Lista de Usuários</a>
         <br>
         <br>
-        
+
         @if($errors->any())
             <div class="alert alert-danger" role="alert">
                 @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
-                @endforeach 
+                @endforeach
             </div>
         @endif
 
 
         <br>
-        <form action="{{ route('products.store') }}" method="POST">
+        <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nome</label>
@@ -33,7 +33,7 @@
             </div>
             <div class="mb-3">
                 <label for="photo" class="form-label">Imagem</label>
-                <input type="text" class="form-control form control-md" id="photo" name="photo">
+                <input type="file" class="form-control form control-md" id="photo" name="photo">
             </div>
             <div class="mb-3">
                 <label for="url" class="form-label">URL</label>

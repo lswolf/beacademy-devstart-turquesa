@@ -2,7 +2,7 @@
 @section('title', 'Editar Produto')
 @section('content')
 
-<div class="container"> 
+<div class="container">
 
     <h1>Produtos: {{ $product->name }}</h1>
 
@@ -14,7 +14,7 @@
         </div>
     @endif
 
- 
+
     <form action="{{ route('products.update', $product->id) }}" method="post">
         @method('put')
         @csrf
@@ -29,9 +29,9 @@
         <div class="mb-3">
             <label for="photo" class="form-label">Foto</label>
             <input type="text" class="form-control form control-md" id="photo" name="photo" value="{{ $product->photo }}">
-            <div><img style="width:50px" src="{{ $product->photo }}" alt=""></div>
+            <div><img style="width:50px" src="{{ $product->photo }}" alt="Imagem da capa do livro"></div>
         </div>
-        
+
         <div class="mb-3">
             <label for="url" class="form-label">URL</label>
             <input type="text" class="form-control" id="url" name="url" value="{{ $product->url }}">
