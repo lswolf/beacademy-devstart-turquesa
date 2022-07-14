@@ -22,12 +22,21 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        if(!$product = Product::find($id))
+        if (!$product = Product::find($id))
             return redirect()->route('products.index');
 
         $title = 'e-Book: ' . $product->name;
 
         return view('product.show', compact('product', 'title'));
+    }
+    public function show_item($id)
+    {
+        if (!$product = Product::find($id))
+            return redirect()->route('products.index');
+
+        $title = 'e-Book: ' . $product->name;
+
+        return view('product.show_item', compact('product', 'title'));
     }
 
     public function create()
@@ -53,8 +62,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
-        {
+        if (!$product = $this->model->find($id)) {
             return redirect()->route('products.index');
         }
 
@@ -64,7 +72,7 @@ class ProductController extends Controller
     public function update(StoreUpdateProductFormRequest $request, $id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
+        if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
         $data = $request->all();
@@ -77,11 +85,18 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
+        if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
         $product->delete();
 
         return redirect()->route('products.index');
+    }
+    public function home()
+    {
+        $products = Product::paginate(4);
+
+
+        return view('layouts.home', compact('products'));
     }
 }
