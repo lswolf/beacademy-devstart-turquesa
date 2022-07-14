@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateProductFormRequest;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -22,7 +23,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        if(!$product = Product::find($id))
+        if (!$product = Product::find($id))
             return redirect()->route('products.index');
 
         $title = 'e-Book: ' . $product->name;
@@ -53,8 +54,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
-        {
+        if (!$product = $this->model->find($id)) {
             return redirect()->route('products.index');
         }
 
@@ -64,7 +64,7 @@ class ProductController extends Controller
     public function update(StoreUpdateProductFormRequest $request, $id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
+        if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
         $data = $request->all();
@@ -77,11 +77,28 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
+        if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
         $product->delete();
 
         return redirect()->route('products.index');
+    }
+    public function products_item(Request $request, $idcategory = null)
+    {
+        $data = [];
+        $categories = Category::all();
+        $queryproduct = Product::limit(12);
+
+        if ($idcategory != 0) {
+            $queryproduct->where("category_id", $idcategory);
+        }
+
+
+        $product = $queryproduct->paginate(12);
+        $data['products'] = $product;
+        $data['listcategories'] = $categories;
+        $data['idcategory'] = $idcategory;
+        return view('product.index_item', $data);
     }
 }
