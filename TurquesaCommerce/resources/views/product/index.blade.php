@@ -24,7 +24,11 @@
         <tbody class="text-center">
         @foreach($products as $product)
             <tr>
-                <td><img style="width:50px;" src="{{ $product->photo }}" alt=""></td>
+                @if($product->photo)
+                    <td><img style="width:50px;" src="{{ asset('storage/' . $product->photo) }}" width="50px" height="50px" alt="Capa do Livro"></td>
+                @else
+                    <td><img style="width:50px;" src="{{ asset('storage/profile/avatar-livro.jpg') }}" width="50px" height="50px" alt="Capa do Livro"></td>
+                @endif
                 <th scope="row">{{ $product->id }}</th>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->description }}</td>
