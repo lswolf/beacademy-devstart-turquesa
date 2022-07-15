@@ -10,7 +10,7 @@
 
     <form method="POST" action="{{ route('login') }}">
       @csrf
-      <!-- Email input -->
+
       <div class="mb-4 filho">
         <img src="/img/logo.svg" alt="" class="mb-3">
         <img src="/img/TurquesaBooks.svg" alt="">
@@ -20,13 +20,13 @@
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
       </div>
 
-      <!-- Password input -->
+
       <div <div class="mb-3">
         <label class="form-label" for="form2Example2">Senha</label>
         <input type="password" id="form2Example2" class="form-control" name="password" />
       </div>
       <div class="col mb-5">
-        <!-- Simple link -->
+
         <a href="{{ route('password.request') }}">Esqueceu a Senha?</a>
         <div>
           <a href="{{ route('register') }}">Ainda nao e cadastrado
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <!-- Submit button -->
+
       <button type="submit" class="btn btn-dark btn-block mb-4 w-100">Entrar</button>
     </form>
   </div>
