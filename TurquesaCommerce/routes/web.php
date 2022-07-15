@@ -30,6 +30,8 @@ Route::prefix('products')->group(function () {
     Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create');
     Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store');
     Route::match(['get', 'post'], '/', [ProductController::class, 'index'])->name('products.index');
+    Route::match(['get', 'post'], '/products-item', [ProductController::class, 'products_item'])->name('products.products_item');
+    Route::match(['get', 'post'], '/products-item/{idcategory?}', [ProductController::class, 'products_item'])->name('products.products_item_id');
 });
 
 
