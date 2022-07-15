@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -70,3 +71,5 @@ Route::middleware([
         return redirect('/');
     })->name('dashboard');
 });
+
+Route::get('/contato', [ContactController::class, 'viewForm'])->name('contact.contact');
