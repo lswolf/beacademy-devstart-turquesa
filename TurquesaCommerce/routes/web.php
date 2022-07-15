@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,7 @@ Route::prefix('users')->group(function () {
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
 });
+    Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
 
 
 
@@ -70,3 +72,5 @@ Route::middleware([
         return redirect('/');
     })->name('dashboard');
 });
+
+Route::get('/contato', [ContactController::class, 'viewForm'])->name('contact.contact');
