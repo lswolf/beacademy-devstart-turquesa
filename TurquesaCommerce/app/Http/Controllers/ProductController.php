@@ -22,7 +22,7 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        if(!$product = Product::find($id))
+        if (!$product = Product::find($id))
             return redirect()->route('products.index');
 
         $title = 'e-Book: ' . $product->name;
@@ -53,8 +53,7 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
-        {
+        if (!$product = $this->model->find($id)) {
             return redirect()->route('products.index');
         }
 
@@ -64,7 +63,7 @@ class ProductController extends Controller
     public function update(StoreUpdateProductFormRequest $request, $id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
+        if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
         $data = $request->all();
@@ -77,11 +76,23 @@ class ProductController extends Controller
     public function delete($id)
     {
         $product = Product::find($id);
-        if(!$product = $this->model->find($id))
+        if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
         $product->delete();
 
         return redirect()->route('products.index');
+    }
+
+    public function search(Request $request)
+    {
+        $search = request('search');
+
+        $products = Product::where([
+            ['name', 'like', '%' . $search . '%']
+        ])->get();
+
+        return view('product.search', compact('products'));
+
     }
 }

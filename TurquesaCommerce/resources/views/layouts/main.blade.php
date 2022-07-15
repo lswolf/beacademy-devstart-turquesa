@@ -42,10 +42,9 @@
         </ul>
         <div class="d-flex group">
           <div>
-            <form action="" class="d-flex" role="search" method="GET">
-              <input class="form-control me-2 w-200" type="search" name="search" placeholder="Oque você procura?" aria-label="Search">
+            <form action="{{ route('products.search') }}" class="d-flex" role="search" method="get">
+              <input class="form-control me-2 w-200" type="search" id="search" name="search" placeholder="O que você procura?" aria-label="Search">
               <button class="botao" type="submit"><img src="/img/search.png" alt=""></button>
-
             </form>
           </div>
           <div class="perfil-img">
