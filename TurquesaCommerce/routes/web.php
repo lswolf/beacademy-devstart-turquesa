@@ -58,8 +58,7 @@ Route::prefix('users')->group(function () {
     Route::put('/edit/{id}', [UserController::class, 'update'])->name('users.update');
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
-});
-    Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
+});;
 
 
 
