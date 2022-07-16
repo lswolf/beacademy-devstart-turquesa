@@ -24,12 +24,17 @@
           <p>{{$category->name}}</p>
         </td>
         <td>
-          <form action="{{route('category.destroy',$category->id)}}" method="post">
-            @csrf
-            @method('delete')
-            <button type="submit" class="btn btn-danger">deletar</button>
+          <div class="d-flex index-cat">
+            <form action="{{route('category.destroy',$category->id)}}" method="post">
+              @csrf
+              @method('delete')
+              <button type="submit" class="btn btn-danger">deletar</button>
+            </form>
+
+            <a href="{{route('category.edit',$category->id)}}" class="btn btn-warning">editar</a>
+          </div>
         </td>
-        <td><a href="{{route('category.edit',$category->id)}}" class="btn btn-primary">editar</a></td>
+
 
       </tr>
       @endforeach

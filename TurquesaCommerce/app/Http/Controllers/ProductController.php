@@ -21,24 +21,15 @@ class ProductController extends Controller
 
         return view('product.index', compact('products'));
     }
-
-    public function show($id)
-    {
-        if (!$product = Product::find($id))
-            return redirect()->route('products.index');
-
-        $title = 'e-Book: ' . $product->name;
-
-        return view('product.show', compact('product', 'title'));
-    }
     public function show_item($id)
     {
         if (!$product = Product::find($id))
             return redirect()->route('products.index');
 
         $title = 'e-Book: ' . $product->name;
+        $referecias = Product::where('category_id', '=', $product->category_id)->limit(8)->get();
 
-        return view('product.show_item', compact('product', 'title'));
+        return view('product.show_item', compact('product', 'title', 'referecias'));
     }
 
     public function create()

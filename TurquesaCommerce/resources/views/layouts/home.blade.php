@@ -6,29 +6,36 @@
 </div>
 <div class="container section-category">
   <h2>Livros</h2>
-  <div id="carouselExampleControls" class="carousel " data-bs-ride="carousel">
+  <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active ">
-        <img src="/img/categoria1.png" class=" w-20" alt="...">
-        <img src="/img/categoria2.png" class="w-20" alt="...">
-        <img src="/img/categoria3.png" class=" w-20" alt="...">
-        <img src="/img/categoria4.png" class=" w-20" alt="...">
+        <a href="{{route('products.products_item_id',['idcategory'=>1])}}"><img src="/img/categoria1.png" class=" w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>2])}}">
+          <img src="/img/categoria2.png" class="w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>3])}}">
+          <img src="/img/categoria3.png" class=" w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>4])}}">
+          <img src="/img/categoria4.png" class=" w-20" alt="..."></a>
       </div>
       <div class="carousel-item">
-        <img src="/img/categoria5.png" class=" w-20" alt="...">
-        <img src="/img/categoria6.png" class=" w-20" alt="...">
-        <img src="/img/categoria7.png" class=" w-20" alt="...">
-        <img src="/img/categoria1.png" class="w-20" alt="...">
+        <a href="{{route('products.products_item_id',['idcategory'=>5])}}">
+          <img src="/img/categoria5.png" class=" w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>6])}}">
+          <img src="/img/categoria6.png" class=" w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>7])}}">
+          <img src="/img/categoria7.png" class=" w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>1])}}">
+          <img src="/img/categoria1.png" class="w-20" alt="..."></a>
       </div>
 
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-next " aria-hidden="true"><img style="margin-right:220px;width:40px;" src="/img/seta-esquerda.png" alt=""></span>
+    <button class="carousel-control-prev play-1" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-next " aria-hidden="true"><img src="/img/seta-esquerda.png" alt=""></span>
 
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <button class="carousel-control-next play-2" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
       <div>
-        <span class="carousel-next " aria-hidden="true"><img style="margin-left:150px;width:36px;" src="/img/setas-direitas.png" alt=""></span>
+        <span class="carousel-next " aria-hidden="true"><img src="/img/setas-direitas.png" alt=""></span>
       </div>
     </button>
   </div>
@@ -80,7 +87,7 @@
     <h3>Mais Populares</h3>
     <div class="d-flex ">
       @foreach($products as $product)
-      <div class="mt-4 filho " style="margin-left:10px ;">
+      <div class="mt-4 filho ">
 
         <div class="irma text-center">
           <img src="{{asset('storage/'.$product->photo)}}" width="100px" height="150px" alt="">
@@ -89,9 +96,9 @@
             <div>
               <img class="mt-4" src="/img/estrelas.png" alt="">
             </div>
-            <h3 class="mt-4">{{$product->price}}</h3>
+            <h3 class="mt-4">R$ {{number_format($product->sale_price, 2, ',', '.' )}}</h3>
           </div>
-          <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5" style="width:200px">Ver mais</a>
+          <a class="btn btn-outline-dark mt-5 home-a" href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5">Ver mais</a>
 
         </div>
       </div>
@@ -114,7 +121,7 @@
     <h2>Novidades que você precisa conhecer</h2>
     <div class="d-flex ">
       @foreach($products as $product)
-      <div class="mt-4 filho " style="margin-left:10px ;">
+      <div class="mt-4 filho ">
 
         <div class="irma text-center">
           <img src="{{asset('storage/'.$product->photo)}}" width="100px" height="150px" alt="">
@@ -123,9 +130,9 @@
             <div>
               <img class="mt-4" src="/img/estrelas.png" alt="">
             </div>
-            <h3 class="mt-4">{{$product->price}}</h3>
+            <h3 class="mt-4">R$ {{number_format($product->sale_price, 2, ',', '.' )}}</h3>
           </div>
-          <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5" style="width:200px">Ver mais</a>
+          <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5 home-a">Ver mais</a>
 
 
         </div>
@@ -134,9 +141,9 @@
 
     </div>
 
-</div>
 
-</section>
+
+  </section>
 
 
 
