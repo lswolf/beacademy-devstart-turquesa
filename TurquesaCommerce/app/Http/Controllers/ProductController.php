@@ -47,28 +47,15 @@ class ProductController extends Controller
 
     public function store(StoreUpdateProductFormRequest $request)
     {
-        /*
-        $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->photo = $request->photo;
-        $product->photo->store('profile', 'public');
-        $product->url = $request->url;
-        $product->cost_price = $request->cost_price;
-        $product->sale_price = $request->sale_price;
-        $product->category_id = $request->category_id;
-        $product->save();
-        */
-
         $data = $request->all();
 
-        if($request->photo){
+        if ($request->photo) {
             $file = $request['photo'];
             $path = $file->store('profile', 'public');
             $data['photo'] = $path;
         }
 
-        Product::create($data);
+
         $this->model->create($data);
 
         return redirect()->route('products.index');
@@ -108,6 +95,7 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
+
     public function home()
     {
         $products = Product::paginate(4);
@@ -115,6 +103,21 @@ class ProductController extends Controller
 
         return view('layouts.home', compact('products'));
         }
+
+
+    public function search(Request $request)
+    {
+        $search = request('search');
+
+        $products = Product::where([
+            ['name', 'like', '%' . $search . '%']
+        ])->get();
+
+        return view('product.search', compact('products'));
+
+    }
+}
+
     public function products_item(Request $request, $idcategory = null)
     {
         $data = [];
@@ -134,3 +137,4 @@ class ProductController extends Controller
 
     }
 }
+
