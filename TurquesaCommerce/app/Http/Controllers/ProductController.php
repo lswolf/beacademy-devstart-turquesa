@@ -85,6 +85,21 @@ class ProductController extends Controller
 
         return redirect()->route('products.index');
     }
+
+
+    public function search(Request $request)
+    {
+        $search = request('search');
+
+        $products = Product::where([
+            ['name', 'like', '%' . $search . '%']
+        ])->get();
+
+        return view('product.search', compact('products'));
+
+    }
+}
+
     public function products_item(Request $request, $idcategory = null)
     {
         $data = [];
@@ -103,3 +118,4 @@ class ProductController extends Controller
         return view('product.index_item', $data);
     }
 }
+

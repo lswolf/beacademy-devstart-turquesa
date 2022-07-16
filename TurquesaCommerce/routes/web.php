@@ -8,6 +8,8 @@ use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
+use Illuminate\Support\Facades\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('layouts.home');
 });
+
+
+
 Route::prefix('products')->group(function () {
     Route::delete('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
     Route::put('/{id}', [ProductController::class, 'update'])->name('products.update');
@@ -30,8 +35,11 @@ Route::prefix('products')->group(function () {
     Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create');
     Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store');
     Route::match(['get', 'post'], '/', [ProductController::class, 'index'])->name('products.index');
+    Route::match(['get', 'post'], '/pesquisa',[ProductController::class, 'search'])->name('products.search');
+    Route::get('/search', [ProductController::class, 'search'])->name('products.search')->name('products.search');     
     Route::match(['get', 'post'], '/products-item', [ProductController::class, 'products_item'])->name('products.products_item');
     Route::match(['get', 'post'], '/products-item/{idcategory?}', [ProductController::class, 'products_item'])->name('products.products_item_id');
+
 });
 
 
