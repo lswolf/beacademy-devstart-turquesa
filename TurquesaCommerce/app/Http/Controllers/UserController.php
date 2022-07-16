@@ -18,12 +18,20 @@ class UserController extends Controller
 
         return view('users.profile', compact('users'));
     }
-
-    public function profile_create(Request $request)
+    public function update(Request $request, $id)
     {
+
         Client::findOrfail($request->id)->update($request->all());
 
         return redirect()->route('users.profile');
+    }
+
+    public function profile_create(Request $request)
+    {
+
+        $users = Client::with('user')->get();
+
+        return view('users.profile_create', compact('users'));
     }
 
     public function store(Request $request)

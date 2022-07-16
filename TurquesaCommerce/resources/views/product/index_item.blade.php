@@ -30,7 +30,7 @@
       @foreach($products as $product)
       <div class="filho" style="margin-left:10px; margin-top:10px;">
         <div class="irma text-center" style="padding-left: 10px;">
-          <img src="{{$product->photo}}" width="100px" height="150px" alt="">
+          <img src="{{asset('storage/'.$product->photo)}}" width="100px" height="150px" alt="">
           <div class="mt-5">
             <a class="mt-5" href="">{{$product->name}}</a>
             <div>

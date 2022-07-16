@@ -28,7 +28,6 @@ class StoreUpdateProductFormRequest extends FormRequest
             'description' => 'required|max:250|min:5',
             'photo' => [
                 'file',
-                'mimes:jpeg, gif, png, bmp, tiff, psd, exif, raw, pdf, eps, svg, webp'
             ],
             'url' => 'required',
             'cost_price' => 'required',
