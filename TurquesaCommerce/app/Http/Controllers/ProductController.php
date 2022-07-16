@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateProductFormRequest;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -37,15 +38,16 @@ class ProductController extends Controller
 
     public function store(StoreUpdateProductFormRequest $request)
     {
-        $product = new Product();
-        $product->name = $request->name;
-        $product->description = $request->description;
-        $product->photo = $request->photo;
-        $product->url = $request->url;
-        $product->cost_price = $request->cost_price;
-        $product->sale_price = $request->sale_price;
-        $product->category_id = $request->category_id;
-        $product->save();
+        $data = $request->all();
+
+        if ($request->photo) {
+            $file = $request['photo'];
+            $path = $file->store('profile', 'public');
+            $data['photo'] = $path;
+        }
+
+
+        $this->model->create($data);
 
         return redirect()->route('products.index');
     }
@@ -84,6 +86,7 @@ class ProductController extends Controller
         return redirect()->route('products.index');
     }
 
+
     public function search(Request $request)
     {
         $search = request('search');
@@ -96,3 +99,23 @@ class ProductController extends Controller
 
     }
 }
+
+    public function products_item(Request $request, $idcategory = null)
+    {
+        $data = [];
+        $categories = Category::all();
+        $queryproduct = Product::limit(12);
+
+        if ($idcategory != 0) {
+            $queryproduct->where("category_id", $idcategory);
+        }
+
+
+        $product = $queryproduct->paginate(12);
+        $data['products'] = $product;
+        $data['listcategories'] = $categories;
+        $data['idcategory'] = $idcategory;
+        return view('product.index_item', $data);
+    }
+}
+

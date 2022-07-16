@@ -27,7 +27,7 @@
 
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link">Produtos</a>
+            <a href="{{route('products.products_item')}}" class="nav-link">Produtos</a>
           </li>
 
 
@@ -37,7 +37,7 @@
 
 
           <li class="nav-item">
-            <a href="" class="nav-link">contato</a>
+            <a href="/contato" class="nav-link">contato</a>
           </li>
         </ul>
         <div class="d-flex group">
@@ -47,6 +47,7 @@
               <button class="botao" type="submit"><img src="/img/search.png" alt=""></button>
             </form>
           </div>
+          @guest
           <div class="perfil-img">
             <li class="nav-item dropdown">
               <a class="nav-link d-flex " href="#" id="navbarDropdownMenuLink">
@@ -55,7 +56,7 @@
                   <p style="font-size:15px ; margin-left:4px;">Entre <br> ou <br> cadastre</p>
                 </div>
               </a>
-              @guest
+              
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
 
                 <a class="dropdown-item" href="/login">entrar</a>
@@ -64,6 +65,14 @@
               </div>
               @endguest
               @auth
+              <div class="perfil-img">
+                <li class="nav-item dropdown">
+                  <a class="nav-link d-flex " href="#" id="navbarDropdownMenuLink">
+                    <img src="/img/perfil.png" alt="">
+                    <div>
+                      <p style="font-size:15px ; margin-left:4px; margin-top: 35px">Bem-vindo, {{ Auth::user()->name }}</p>
+                    </div>
+                  </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
                 <a class="dropdown-item" href="/users/perfil">perfil</a>
                 <form class="dropdown-item" action="/logout" method="post">
