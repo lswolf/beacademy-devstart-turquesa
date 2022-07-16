@@ -6,6 +6,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateProductFormRequest;
 use App\Models\Category;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -73,13 +74,24 @@ class ProductController extends Controller
 
     public function update(StoreUpdateProductFormRequest $request, $id)
     {
-        $product = Product::find($id);
+        $data = $request->all();
         if (!$product = $this->model->find($id))
             return redirect()->route('products.index');
 
-        $data = $request->all();
+
+
+
+        if ($request->photo) {
+            if ($product->photo && Storage::exists($product->photo)) {
+                Storage::delete($product->photo);
+            }
+
+            $data['photo'] = $request->photo->store('products');
+        }
 
         $product->update($data);
+
+
 
         return redirect()->route('products.index');
     }
@@ -98,11 +110,11 @@ class ProductController extends Controller
 
     public function home()
     {
-        $products = Product::paginate(4);
+        $products = Product::limit(4)->get();
 
 
         return view('layouts.home', compact('products'));
-        }
+    }
 
 
     public function search(Request $request)
@@ -114,9 +126,8 @@ class ProductController extends Controller
         ])->get();
 
         return view('product.search', compact('products'));
-
     }
-}
+
 
     public function products_item(Request $request, $idcategory = null)
     {
@@ -134,7 +145,5 @@ class ProductController extends Controller
         $data['listcategories'] = $categories;
         $data['idcategory'] = $idcategory;
         return view('product.index_item', $data);
-
     }
 }
-

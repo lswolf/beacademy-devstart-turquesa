@@ -3,7 +3,7 @@
 @section('content')
 <div class="d-flex  mb-4" style="margin-left: 100px ;  margin-top:50px; ">
   <div>
-    <img src="{{$product->photo}}" alt="" style="height:500px">
+    <img src="{{asset('storage/'.$product->photo)}}" alt="" width="400px" style="height:400px">
   </div>
   <div style="width: 422px; margin-left: 50px ;">
     <h1>{{$product->name}}</h1>
