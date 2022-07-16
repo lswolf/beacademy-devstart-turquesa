@@ -23,17 +23,19 @@
 
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="carousel-next " aria-hidden="true"><img style="margin-right:220px;width:40px;" src="/img/seta-esquerda.png" alt=""></span>
 
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
       <div>
-        <span class="carousel-control-next-icon " aria-hidden="true"></span>
+        <span class="carousel-next " aria-hidden="true"><img style="margin-left:150px;width:36px;" src="/img/setas-direitas.png" alt=""></span>
       </div>
     </button>
   </div>
   <section class="mt-5 section-collection">
-    <h3>Navegue pelo seu universo favorito</h3>
+    <div class="text-center">
+      <h3>Navegue pelo seu universo favorito</h3>
+    </div>
     <div class="mt-5">
       <div class="d-flex">
         <div class="d-flex info-collection">
@@ -76,21 +78,71 @@
 
   <section class="mb-5 mt-5 section-books">
     <h3>Mais Populares</h3>
+    <div class="d-flex ">
+      @foreach($products as $product)
+      <div class="mt-4 filho " style="margin-left:10px ;">
 
-    <div class="mt-4 filho">
+        <div class="irma text-center">
+          <img src="{{$product->photo}}" width="100px" height="150px" alt="">
+          <div class="mt-5">
+            <a class="mt-5" href="">{{$product->name}}</a>
+            <div>
+              <img class="mt-4" src="/img/estrelas.png" alt="">
+            </div>
+            <h3 class="mt-4">{{$product->price}}</h3>
+          </div>
+          <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5" style="width:200px">Ver mais</a>
 
-      <div class="irma">
-        <img src="/img/livro.png" alt="">
-        <a class="mt-3" href="">dracula de luxo</a>
-        <img class="mt-4" src="/img/estrelas.png" alt="">
-        <h3 class="mt-4">R$ 34,99</h3>
-        <button class="btn btn-primary mt-5">Ver mais</button>
-
+        </div>
       </div>
+      @endforeach
+    </div>
+    <div class="justify-content-center pagination mt-3">
+      {{$products->links('pagination::bootstrap-4')}}
     </div>
 
-
   </section>
+
+  <section>
+    <div class="text-center">
+      <h2>Muito mais Cultura pra você!</h2>
+    </div>
+    <div class="d-flex">
+      <img src="/img/banner-home-1.png" width="570px" alt="">
+      <img src="/img/banner-home-2.png" width="550px" style="margin-left:5px;" alt="">
+    </div>
+  </section>
+  <section class="mt-5 section-books mb-5">
+    <h2>Novidades que você precisa conhecer</h2>
+    <div class="d-flex ">
+      @foreach($products as $product)
+      <div class="mt-4 filho " style="margin-left:10px ;">
+
+        <div class="irma text-center">
+          <img src="{{$product->photo}}" width="100px" height="150px" alt="">
+          <div class="mt-5">
+            <a class="mt-5" href="">{{$product->name}}</a>
+            <div>
+              <img class="mt-4" src="/img/estrelas.png" alt="">
+            </div>
+            <h3 class="mt-4">{{$product->price}}</h3>
+          </div>
+          <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5" style="width:200px">Ver mais</a>
+
+
+        </div>
+      </div>
+      @endforeach
+
+    </div>
+    <div class="justify-content-center pagination mt-3">
+      {{$products->links('pagination::bootstrap-4')}}
+    </div>
+</div>
+
+</section>
+
+
 
 </div>
 

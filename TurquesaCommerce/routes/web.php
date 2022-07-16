@@ -22,16 +22,18 @@ use Illuminate\Support\Facades\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.home');
-});
+Route::match(['get', 'post'], '/',  [ProductController::class, 'home'])->name('index.home');
 
+//Route::get('/', function () {
+  //  return view('layouts.home');
+//});
 
 
 Route::prefix('products')->group(function () {
     Route::delete('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
     Route::put('/{id}', [ProductController::class, 'update'])->name('products.update');
     Route::match(['get', 'post'], '/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::match(['get', 'post'], '/show-item/{id}', [ProductController::class, 'show_item'])->name('products.show_item');
     Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create');
     Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store');
     Route::match(['get', 'post'], '/', [ProductController::class, 'index'])->name('products.index');
@@ -67,9 +69,6 @@ Route::prefix('users')->group(function () {
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
 });;
-
-
-
 
 
 Route::middleware([
