@@ -15,10 +15,10 @@
   @endif
 
 
-  <form action="{{ route('products.update', $product->id) }}" method="post">
+  <form action="{{ route('products.update', $product->id) }}" method="post" enctype="multipart/form-data">
     @method('put')
     @csrf
-    <div class="mb-3">
+    <div class=" mb-3">
       <label for="name" class="form-label">Nome</label>
       <input type="text" class="form-control" id="name" name="name" value="{{ $product->name }}">
     </div>
@@ -27,8 +27,9 @@
       <input type="text" class="form-control" id="description" name="description" value="{{ $product->description }}">
     </div>
     <div class="mb-3">
-      <label for="photo" class="form-label">Foto</label>
-      <input type="text" class="form-control form control-md" id="photo" name="photo" value="{{ $product->photo }}">
+      <label for="photo" class="form-label">Imagem</label>
+      <input type="file" class="form-control form control-md" id="photo" name="photo">
+
       <div><img style="width:50px" src="{{asset('storage/'.$product->photo)}}" alt="Imagem da capa do livro"></div>
     </div>
 

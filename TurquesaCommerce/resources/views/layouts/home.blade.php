@@ -83,7 +83,7 @@
       <div class="mt-4 filho " style="margin-left:10px ;">
 
         <div class="irma text-center">
-          <img src="{{$product->photo}}" width="100px" height="150px" alt="">
+          <img src="{{asset('storage/'.$product->photo)}}" width="100px" height="150px" alt="">
           <div class="mt-5">
             <a class="mt-5" href="">{{$product->name}}</a>
             <div>
@@ -97,9 +97,7 @@
       </div>
       @endforeach
     </div>
-    <div class="justify-content-center pagination mt-3">
-      {{$products->links('pagination::bootstrap-4')}}
-    </div>
+
 
   </section>
 
@@ -119,7 +117,7 @@
       <div class="mt-4 filho " style="margin-left:10px ;">
 
         <div class="irma text-center">
-          <img src="{{$product->photo}}" width="100px" height="150px" alt="">
+          <img src="{{asset('storage/'.$product->photo)}}" width="100px" height="150px" alt="">
           <div class="mt-5">
             <a class="mt-5" href="">{{$product->name}}</a>
             <div>
@@ -135,9 +133,7 @@
       @endforeach
 
     </div>
-    <div class="justify-content-center pagination mt-3">
-      {{$products->links('pagination::bootstrap-4')}}
-    </div>
+
 </div>
 
 </section>
