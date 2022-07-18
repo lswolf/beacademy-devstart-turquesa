@@ -3,17 +3,21 @@
 @section('contentss')
 
 <div class="d-flex">
+
   <div class="logo-banner">
     <img src="/img/banner-login.svg" alt="">
   </div>
+
   <div class="justify-content-center w-100 form-login">
 
     <form method="POST" action="{{ route('login') }}">
       @csrf
 
       <div class="mb-4 filho">
-        <img src="/img/logo.svg" alt="" class="mb-3">
-        <img src="/img/TurquesaBooks.svg" alt="">
+        <a href="/">
+          <img src="/img/logo.svg" alt="" class="mb-3">
+          <img src="/img/TurquesaBooks.svg" alt="">
+        </a>
       </div>
       <div <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Email</label>

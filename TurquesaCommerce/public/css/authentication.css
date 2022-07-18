@@ -2,7 +2,9 @@
   width:"650px"; 
   height:"625px";
 }
-
+a{
+text-decoration: none;
+}
 .form-login{
   background-color: #00b0ff ;
    height:625px;

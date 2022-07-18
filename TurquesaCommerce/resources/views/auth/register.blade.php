@@ -11,8 +11,9 @@
       @csrf
 
       <div class="mb-4 filho">
-        <img src="/img/logo.svg" alt="" class="mb-3">
-        <img src="/img/TurquesaBooks.svg" alt="">
+        <a href="/">
+          <img src="/img/logo.svg" alt="" class="mb-3">
+          <img src="/img/TurquesaBooks.svg" alt=""></a>
       </div>
 
       <div class="form-outline mb-4">

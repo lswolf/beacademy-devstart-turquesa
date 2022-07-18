@@ -34,16 +34,18 @@
         <td>{{ $product->name }}</td>
         <td>{{ $product->description }}</td>
         <td>{{ $product->url }}</td>
-        <td>{{ $product->cost_price }}</td>
-        <td>{{ $product->sale_price }}</td>
+        <td>R$ {{number_format($product->cost_price, 2, ',', '.' )}}</td>
+        <td>R$ {{number_format($product->sale_price, 2, ',', '.' )}}</td>
         <td>{{ $product->category_id }}</td>
         <td>
-          <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning text-white">Editar</a>
-          <form action="{{ route('products.delete', $product->id) }}" method="post">
-            @method('delete')
-            @csrf
-            <button type="submit" class="btn btn-danger">Deletar</button>
-          </form>
+          <div class="d-flex">
+            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning text-white" style="margin-right:10px;">Editar</a>
+            <form action="{{ route('products.delete', $product->id) }}" method="post">
+              @method('delete')
+              @csrf
+              <button type="submit" class="btn btn-danger">Deletar</button>
+            </form>
+          </div>
         </td>
       </tr>
       @endforeach

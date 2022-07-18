@@ -53,10 +53,10 @@
               <a class="nav-link d-flex " href="#" id="navbarDropdownMenuLink">
                 <img src="/img/perfil.png" alt="">
                 <div>
-                  <p style="font-size:15px ; margin-left:4px;">Entre <br> ou <br> cadastre</p>
+                  <p class="dd">Entre <br> ou <br> cadastre</p>
                 </div>
               </a>
-              
+
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
 
                 <a class="dropdown-item" href="/login">entrar</a>
@@ -65,14 +65,14 @@
               </div>
               @endguest
               @auth
-              <div class="perfil-img">
-                <li class="nav-item dropdown">
-                  <a class="nav-link d-flex " href="#" id="navbarDropdownMenuLink">
-                    <img src="/img/perfil.png" alt="">
-                    <div>
-                      <p style="font-size:15px ; margin-left:4px; margin-top: 35px">Bem-vindo, {{ Auth::user()->name }}</p>
-                    </div>
-                  </a>
+              <div class="perfil-img" style="margin-bottom:15px">
+            <li class="nav-item dropdown">
+              <a class="nav-link d-flex " href="#" id="navbarDropdownMenuLink">
+                <img src="/img/perfil.png" alt="">
+                <div>
+                  <p class="dd2">Bem-vindo, {{ Auth::user()->name }}</p>
+                </div>
+              </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
                 <a class="dropdown-item" href="/users/perfil">perfil</a>
                 <form class="dropdown-item" action="/logout" method="post">
@@ -100,7 +100,7 @@
 
 
   @yield('content')
-  <footer class="d-flex align-items-center justify-content-center">
+  <footer class="d-flex align-items-center justify-content-center ">
     <p>Copyright &copy 2022 Todos os direitos reservados</p>
   </footer>
   <!-- JavaScript Bundle with Popper -->

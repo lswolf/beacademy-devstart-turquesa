@@ -1,9 +1,17 @@
 @extends('layouts.main')
 @section('title', 'Produtos')
 @section('content')
+<div class="shop-title mt-3">
 
-<div class="d-flex ">
-  <div style="width:300px ;">
+  <h4 class="mb-3">Fazer compras</h4>
+  <div class="shop-subtitle">
+    <a href="/">Home</a><span>></span><span class="detalhe">Loja</span>
+    <hr>
+  </div>
+
+</div>
+<div class="d-flex container">
+  <div style="width:300px ;  margin-top:50px;">
     <h3>categorias</h3>
 
     <div class=" list-group">
@@ -22,8 +30,9 @@
 
 
 
-  <section class="mb-5 mt-5 section-books">
-
+  <section class="mb-5 mt-5 section-books" style="margin-left: 50px;">
+    <p>
+      Exibindo 1–12 de 126 resultados</p>
     <div class="d-flex flex-wrap ">
 
 
@@ -36,9 +45,9 @@
             <div>
               <img class="mt-4" src="/img/estrelas.png" alt="">
             </div>
-            <h3 class="mt-4">R$ {{$product->sale_price}}</h3>
+            <h3 class="mt-4">R$ {{number_format($product->sale_price, 2, ',', '.' )}}</h3>
           </div>
-          <a href="" class="btn btn-outline-dark mt-5" style="width:200px">Ver mais</a>
+          <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5" style="width:200px">Ver mais</a>
 
         </div>
       </div>

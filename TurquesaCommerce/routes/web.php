@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Request;
 Route::match(['get', 'post'], '/',  [ProductController::class, 'home'])->name('index.home');
 
 //Route::get('/', function () {
-  //  return view('layouts.home');
+//  return view('layouts.home');
 //});
 
 
@@ -37,11 +37,9 @@ Route::prefix('products')->group(function () {
     Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create');
     Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store');
     Route::match(['get', 'post'], '/', [ProductController::class, 'index'])->name('products.index');
-    Route::match(['get', 'post'], '/pesquisa',[ProductController::class, 'search'])->name('products.search');
-    Route::get('/search', [ProductController::class, 'search'])->name('products.search')->name('products.search');     
+    Route::match(['get', 'post'], '/pesquisa', [ProductController::class, 'search'])->name('products.search');
     Route::match(['get', 'post'], '/products-item', [ProductController::class, 'products_item'])->name('products.products_item');
     Route::match(['get', 'post'], '/products-item/{idcategory?}', [ProductController::class, 'products_item'])->name('products.products_item_id');
-
 });
 
 

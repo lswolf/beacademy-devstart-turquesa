@@ -1,0 +1,44 @@
+.create-cat{
+  height:365px ;
+}
+.create-cat button{
+  color:#ffff; background:#00A3FF;
+}
+.index-cat a{
+  margin-left:10px;
+}
+.index-contact{
+  margin-left: 50px; margin-bottom: 50px
+}
+.index-contact .div-1{
+  width: 500px; margin-top: 50px
+}
+.index-contact .div-1 .filho{
+   margin-top: 50px
+}
+.index-contact h3{
+  font-size: 20px;
+}
+.index-contact .div-1 .filho .irma{
+ margin-left: 5px" 
+}
+.index-contact .div-1 .filho .irma .irmap{
+  margin: 0; margin-top: 15px; font-weight: 500;
+
+}
+.index-contact .div-1 .filho .irma p{
+font-weight: 500;
+}
+.gemeos{
+  margin-left: 5px; padding-top: 20px; font-weight: 500;
+}
+.div-2{
+  margin-left: 100px; margin-top: 80px
+}
+.div-2 h3{
+  font-size: 20px
+}
+.home-a{
+  width:200px;
+
+}
