@@ -24,12 +24,13 @@
       <p class="mt-2">1x sem juros de R$ {{number_format($product->sale_price, 2, ',', '.' )}}</p>
       <p>VER AS FORMAS DE PARCELAMENTO</p>
       <div class="d-grid mt-5">
-        <form action="" method="post">
+        <form action="{{route('addcart')}}" method="post">
           {{csrf_field()}}
           <input type="hidden" name='id' value="{{$product->id}}">
           <button type="submit" class="btn btn-info" style="margin-top: 20px; margin-left:10px;">Adicionar produto no carrinho</button>
 
         </form>
+
 
       </div>
 

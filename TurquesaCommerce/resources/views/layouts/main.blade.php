@@ -88,7 +88,7 @@
             </li>
           </div>
           <div class="cart-img">
-            <a href="">
+            <a href="/carrinho">
               <img src="/img/cart.png" alt="">
             </a>
           </div>
