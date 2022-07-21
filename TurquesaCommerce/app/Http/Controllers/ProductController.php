@@ -116,7 +116,7 @@ class ProductController extends Controller
             ['name', 'like', '%' . $search . '%']
         ])->get();
 
-        return view('product.search', compact('products'));
+        return view('product.search', compact('products', 'search'));
     }
 
 
