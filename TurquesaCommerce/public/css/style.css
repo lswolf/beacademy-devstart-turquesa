@@ -59,7 +59,7 @@ height: 30px;
   font-size:15px ; margin-left:4px;
 }
 .dd2{
-  font-size:15px ; margin-left:4px; margin-top: 35px
+  font-size:15px ; margin-left:4px; padding-top: 15px;
 }
 .dropdown:hover .dropdown-menu {
 	display: block;

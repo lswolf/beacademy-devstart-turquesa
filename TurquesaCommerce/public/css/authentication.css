@@ -7,11 +7,11 @@ text-decoration: none;
 }
 .form-login{
   background-color: #00b0ff ;
-   height:625px;
+   height:660px;
 }
 .form-login form{
   width:600px ; 
-  padding:130px 0px 0px 150px;
+  padding:80px 0px 0px 150px;
 }
 .form-login .filho{
 margin-left:40px ;

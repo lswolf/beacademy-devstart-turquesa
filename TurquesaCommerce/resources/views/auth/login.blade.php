@@ -1,6 +1,11 @@
 @extends('layouts.authentication')
 @section('title', 'login')
 @section('contentss')
+@if (session('status'))
+<div class="alert alert-danger" style="background-color:black ;">
+  {{ session('status') }}
+</div>
+@endif
 
 <div class="d-flex">
 
@@ -13,21 +18,25 @@
     <form method="POST" action="{{ route('login') }}">
       @csrf
 
+
       <div class="mb-4 filho">
         <a href="/">
           <img src="/img/logo.svg" alt="" class="mb-3">
           <img src="/img/TurquesaBooks.svg" alt="">
         </a>
       </div>
-      <div <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" />
+
+      <x-jet-validation-errors class="text-dark " />
+
+      <div class="form-outline mb-3 ">
+        <x-jet-label for=" email" class="form-label text-white " value="{{ __('Email') }}" />
+        <x-jet-input id="email" class="block mt-1 w-full form-control" type="email" name="email" :value="old('email')" required autofocus />
       </div>
 
 
-      <div <div class="mb-3">
-        <label class="form-label" for="form2Example2">Senha</label>
-        <input type="password" id="form2Example2" class="form-control" name="password" />
+      <div class="form-outline mb-4">
+        <x-jet-label for="password" class="form-label text-white" value="{{ __('Password') }}" />
+        <x-jet-input id="password" class="block mt-1 w-full form-control" type="password" name="password" required autocomplete="current-password" />
       </div>
       <div class="col mb-5">
 
