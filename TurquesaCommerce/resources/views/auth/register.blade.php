@@ -21,7 +21,7 @@
 
       <div class="form-outline ">
         <x-jet-label for="name" class="form-label  text-white" value="{{ __('Name') }}" />
-        <x-jet-input id="name" class="block mt-1 w-full form-control" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+        <x-jet-input id="name" class="block mt-1 w-full form-control" type="text" name="name" :value="old('nome')" required autofocus autocomplete="name" />
 
       </div>
       <div class="form-outline  ">
@@ -29,12 +29,12 @@
         <x-jet-input id="email" class="block mt-1 w-full form-control" type="email" name="email" :value="old('email')" required />
       </div>
       <div class="form-outline ">
-        <x-jet-label for="password" class="form-label mt-2 text-white" value="{{ __('Password') }}" />
+        <x-jet-label for="password" class="form-label mt-2 text-white" value="{{ __('senha') }}" />
         <x-jet-input id="password" class="block mt-1 w-full form-control" type="password" name="password" required autocomplete="new-password" />
       </div>
 
       <div class="form-outline ">
-        <x-jet-label for="password_confirmation" class="form-label mt-2 text-white" value="{{ __('Confirm Password') }}" />
+        <x-jet-label for="password_confirmation" class="form-label mt-2 text-white" value="{{ __('Confirma senha') }}" />
         <x-jet-input id="password_confirmation" class="block mt-1 w-full form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
       </div>
 
@@ -55,7 +55,7 @@
         </x-jet-label>
       </div>
       @endif
-      <div class="col mb-3">
+      <div class="col mb-3 mt-2">
 
         <a href="{{ route('login') }}">já possui conta? Clique Aqui!!</a>
 

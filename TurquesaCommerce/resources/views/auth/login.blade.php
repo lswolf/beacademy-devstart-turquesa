@@ -35,7 +35,7 @@
 
 
       <div class="form-outline mb-4">
-        <x-jet-label for="password" class="form-label text-white" value="{{ __('Password') }}" />
+        <x-jet-label for="password" class="form-label text-white" value="{{ __('senha') }}" />
         <x-jet-input id="password" class="block mt-1 w-full form-control" type="password" name="password" required autocomplete="current-password" />
       </div>
       <div class="col mb-5">
