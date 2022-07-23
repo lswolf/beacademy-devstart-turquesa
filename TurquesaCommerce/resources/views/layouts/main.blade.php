@@ -30,10 +30,11 @@
             <a href="{{route('products.products_item')}}" class="nav-link">Produtos</a>
           </li>
 
-
+          @can('admin')
           <li class="nav-item">
             <a href="{{ route('products.create') }}" class="nav-link">Criar produtos</a>
           </li>
+          @endcan
 
 
           <li class="nav-item">
