@@ -9,7 +9,6 @@
     <hr>
   </div>
 </div>
-
 <div class=" container" style=" border-radius:5px;  margin-top:50px;  background: #ffff;">
     <div class="row marcador align-items-center">
       <div class="col mx-auto text-center">
@@ -31,6 +30,7 @@
             <br>
           </div>
         </div>
+
       </div>
     </div>
   </div>

@@ -135,6 +135,7 @@
           <a href="{{route('products.show_item',$product->id)}}" class="btn btn-outline-dark mt-5 home-a">Ver mais</a>
 
 
+
         </div>
       </div>
       @endforeach

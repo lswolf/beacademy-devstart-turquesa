@@ -77,7 +77,7 @@ class ProductController extends Controller
                 Storage::delete($product->photo);
             }
 
-            $data['photo'] = $request->photo->store('products');
+            $data['photo'] = $request->photo->store('profile', 'public');
         }
 
         $product->update($data);

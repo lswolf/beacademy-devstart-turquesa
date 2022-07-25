@@ -1,11 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
-
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
-
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
@@ -67,6 +66,14 @@ Route::prefix('users')->group(function () {
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
 });;
+Route::prefix('carrinho')->group(
+    function () {
+
+        Route::match(['get', 'post'], '', [CartController::class, 'viewCart'])->name('viewcart');
+        Route::match(['get', 'post'], '/adicionar', [CartController::class, 'addcart'])->name('addcart');
+        Route::delete('/delete', [CartController::class, 'deleteCart'])->name('cartdelete');
+    }
+);
 
 
 Route::middleware([
