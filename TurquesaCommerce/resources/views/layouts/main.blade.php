@@ -17,7 +17,7 @@
   <header class="nav-main">
     <nav class="navbar navbar-expand-lg navbar-light " style="padding:13px">
       <div class="collapse navbar-collapse d-flex justify-content-around" id="navbar">
-        <a href="/" class="navbar-brand">
+        <a href="/" class="navbar-brand" style="margin-top: -20px;">
           <img src="/img/logo.svg" alt="">
           <img class="logo" src="/img/TurquesaBooks.svg" alt="">
         </a>
@@ -67,10 +67,11 @@
               @auth
               <div class="perfil-img" style="margin-bottom:15px">
             <li class="nav-item dropdown">
+
               <a class="nav-link d-flex " href="#" id="navbarDropdownMenuLink">
                 <img src="/img/perfil.png" alt="">
-                <div>
-                  <p class="dd2">Bem-vindo, {{ Auth::user()->name }}</p>
+                <div class="dd2">
+                  <p>Bem-vindo,<br> {{ Auth::user()->name }}</p>
                 </div>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
