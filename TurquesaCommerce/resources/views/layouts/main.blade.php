@@ -175,7 +175,7 @@
   </div>
 </nav>
       <nav class="navbar navbar-dark bg-info"> 
-        <div class="container">
+        <div class="container d-flex justify-content-center">
           <p class="text-center">Grupo Turquesa 🤍</p>
         </div>
         <br>
