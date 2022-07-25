@@ -29,12 +29,12 @@ Route::match(['get', 'post'], '/',  [ProductController::class, 'home'])->name('i
 
 
 Route::prefix('products')->group(function () {
-    Route::delete('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete');
+    Route::delete('/delete/{id}', [ProductController::class, 'delete'])->name('products.delete')->middleware('can:admin');
     Route::put('/{id}', [ProductController::class, 'update'])->name('products.update');
-    Route::match(['get', 'post'], '/edit/{id}', [ProductController::class, 'edit'])->name('products.edit');
+    Route::match(['get', 'post'], '/edit/{id}', [ProductController::class, 'edit'])->name('products.edit')->middleware('can:admin');
     Route::match(['get', 'post'], '/show-item/{id}', [ProductController::class, 'show_item'])->name('products.show_item');
-    Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create');
-    Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store');
+    Route::match(['get', 'post'], '/create', [ProductController::class, 'create'])->name('products.create')->middleware('can:admin');
+    Route::match(['get', 'post'], '/store', [ProductController::class, 'store'])->name('products.store')->middleware('can:admin');
     Route::match(['get', 'post'], '/', [ProductController::class, 'index'])->name('products.index');
     Route::match(['get', 'post'], '/pesquisa', [ProductController::class, 'search'])->name('products.search');
     Route::match(['get', 'post'], '/products-item', [ProductController::class, 'products_item'])->name('products.products_item');
@@ -43,12 +43,12 @@ Route::prefix('products')->group(function () {
 
 
 Route::prefix('categoria')->group(function () {
-    Route::match(['get', 'post'], '', [CategoryController::class, 'index'])->name('category.index');
-    Route::match(['get', 'post'], '/create', [CategoryController::class, 'create'])->name('category.create');
-    Route::match(['get', 'post'], '/store', [CategoryController::class, 'store'])->name('category.store');
-    Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
-    Route::match(['get', 'post'], '/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
-    Route::put('/update/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::match(['get', 'post'], '', [CategoryController::class, 'index'])->name('category.index')->middleware('can:admin');
+    Route::match(['get', 'post'], '/create', [CategoryController::class, 'create'])->name('category.create')->middleware('can:admin');
+    Route::match(['get', 'post'], '/store', [CategoryController::class, 'store'])->name('category.store')->middleware('can:admin');
+    Route::delete('/{id}', [CategoryController::class, 'destroy'])->name('category.destroy')->middleware('can:admin');
+    Route::match(['get', 'post'], '/edit/{id}', [CategoryController::class, 'edit'])->name('category.edit')->middleware('can:admin');
+    Route::put('/update/{id}', [CategoryController::class, 'update'])->name('category.update')->middleware('can:admin');
 });
 
 Route::prefix('admin')->group(function () {
