@@ -5,9 +5,36 @@
 <div class="container mb-5">
   <br>
   <h1>Gerenciador</h1>
-  <a class="btn btn-outline-dark " href="{{ route('products.index') }}" role="button">Lista de Produtos</a>
-  <a class="btn btn-outline-dark" href="{{ route('category.index') }}" role="button">Lista de Categorias</a>
-  <a class="btn btn-outline-dark" href="{{ route('users.index') }}" role="button">Lista de Usuários</a>
+  <div>
+  <div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Produtos
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{route('products.create')}}">criar Produtos</a>
+    <a class="dropdown-item" href="{{route('products.index')}}">lista de Produtos</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  Categorias
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{route('category.create')}}">criar Categorias</a>
+    <a class="dropdown-item" href="{{route('category.index')}}">lista de categorias</a>
+  </div>
+</div>
+<div class="dropdown">
+  <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ Usuários
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
+    <a class="dropdown-item" href="{{route('users.index')}}">lista de usuarios</a>
+    <a class="dropdown-item" href="#">pedidos dos usuarios</a>
+  </div>
+</div>
+</div>
+  
   <br>
   <br>
 
