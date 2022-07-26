@@ -11,7 +11,9 @@
         "laravel/jetstream": "^2.8",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
+        "league/omnipay": "^3.2",
         "livewire/livewire": "^2.5",
+        "omnipay/paypal": "^3.0",
         "spatie/laravel-permission": "^5.5"
     },
     "require-dev": {
