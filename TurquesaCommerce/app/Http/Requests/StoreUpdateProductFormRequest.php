@@ -26,7 +26,9 @@ class StoreUpdateProductFormRequest extends FormRequest
         return [
             'name' => 'required|max:50|min:3',
             'description' => 'required|max:250|min:5',
-            'photo' => 'required',
+            'photo' => [
+                'file',
+            ],
             'url' => 'required',
             'cost_price' => 'required',
             'sale_price' => 'required',
@@ -40,7 +42,7 @@ class StoreUpdateProductFormRequest extends FormRequest
             'required' => 'Campo :attribute é obrigatório',
             'max' => 'Campo deve ter o maximo de :max caracteres',
             'min' => 'Campo deve ter o mínimo de :min caracteres',
-            
+
         ];
     }
 }

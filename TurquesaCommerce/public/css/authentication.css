@@ -1,0 +1,21 @@
+.logo-banner img{
+  width:"650px"; 
+  height:"625px";
+}
+a{
+text-decoration: none;
+}
+.form-login{
+  background-color: #00b0ff ;
+   height:660px;
+}
+.form-login form{
+  width:600px ; 
+  padding:80px 0px 0px 150px;
+}
+.form-login .filho{
+margin-left:40px ;
+}
+.form-login label,a{
+ color:#ffff;
+}

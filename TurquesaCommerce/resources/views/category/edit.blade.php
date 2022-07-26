@@ -9,9 +9,13 @@
   <form action="{{route('category.update',$category->id)}}" method="post">
     @csrf
     @method('put')
-    <label for="name">categoria</label>
-    <input type="text" name="name" value="{{$category->name}}">
-    <button type="submit">cadastrar</button>
+    <div class="mb-3">
+      <b><label class="form-label" for="name">Categoria:</label></b>
+      <input class="form-control" type="text" name="name" value="{{$category->name}}">
+      <br>
+      <button class="btn btn-primary" type="submit">cadastrar</button>
+    </div>
+    <br>
   </form>
 
 </div>

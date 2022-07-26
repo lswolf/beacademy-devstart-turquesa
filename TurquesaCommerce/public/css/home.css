@@ -17,13 +17,26 @@ margin-top: 40px;
  height:450px; 
  background-color:#ffff; 
  border-radius:5px;
+ margin-left:10px ;
 }
 .section-books .irma{
-  padding:20px 0px 0px 50px;
+  padding:20px 0px 0px 0px;
 }
 .section-books .irma a{
  font-size: 16px; 
  text-decoration:none; 
  color:black;
 
+}
+.play-1{
+  width:50px;
+}
+.play-1 span img{
+  margin-right:100px;width:40px;
+}
+.play-2{
+  width:50px;
+}
+.play-2 span img{
+  margin-left:50px;width:36px;
 }
