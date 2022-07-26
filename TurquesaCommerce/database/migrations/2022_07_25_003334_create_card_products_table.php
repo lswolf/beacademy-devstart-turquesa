@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->decimal('value', 10, 2);
             $table->string('status', 4);
-            $table->integer('product_id')->unsigned();
-            $table->integer('order_id')->unsigned();
+            $table->Biginteger('product_id')->unsigned();
+            $table->Biginteger('order_id')->unsigned();
             $table->timestamps();
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
