@@ -55,7 +55,7 @@ $(function() {
   @endif
 
   @endforeach
-
+  </div>
 
 
   @endsection

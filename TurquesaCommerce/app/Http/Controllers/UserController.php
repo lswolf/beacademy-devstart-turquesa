@@ -16,16 +16,24 @@ class UserController extends Controller
     {
         $users = Client::with('user')->get();
 
+
         return view('users.profile', compact('users'));
     }
 
-    public function profile_create(Request $request)
+    public function profile_create()
     {
+        $users = Client::with('user')->get();
+
+
+        return view('users.profile_create', compact('users'));
+    }
+    public function update(Request $request, $id)
+    {
+
         Client::findOrfail($request->id)->update($request->all());
 
         return redirect()->route('users.profile');
     }
-
     public function store(Request $request)
     {
 
