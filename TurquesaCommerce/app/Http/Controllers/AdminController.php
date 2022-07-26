@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\CardProduct;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -37,4 +40,14 @@ class AdminController extends Controller
 
         return redirect()->route('users.index');
     }
+        public function user_order($id)
+        {
+            
+            $user = CardProduct::all();
+            $pedido = Order::all();
+            $produto =Product::all();
+            return view('users.user_order',compact('user','pedido','id','produto'));
+
+        }
+
 }
