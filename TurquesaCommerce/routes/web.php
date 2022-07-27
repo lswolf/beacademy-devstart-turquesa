@@ -5,7 +5,9 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use Illuminate\Support\Facades\Request;
@@ -66,6 +68,7 @@ Route::prefix('users')->group(function () {
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
 });;
+
 Route::prefix('carrinho')->group(
     function () {
 
@@ -87,3 +90,7 @@ Route::middleware([
 });
 
 Route::get('/contato', [ContactController::class, 'viewForm'])->name('contact.contact');
+
+Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
+Route::get('success', [PaymentController::class, 'success']);
+Route::get('error', [PaymentController:: class, 'error']);
