@@ -56,6 +56,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/users', [AdminController::class, 'index'])->name('users.index');
     Route::put('/edituser/{id}', [AdminController::class, 'update_user'])->name('users.update_user');
     Route::delete('/{id}', [AdminController::class, 'destroy'])->name('users.destroy');
+    Route::match(['get', 'post'], '/user-order/{id}', [AdminController::class, 'user_order'])->name('users.user-order');
 });
 
 

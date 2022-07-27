@@ -28,7 +28,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
     <a class="dropdown-item" href="{{route('users.index')}}">lista de usuarios</a>
-    <a class="dropdown-item" href="#">pedidos dos usuarios</a>
+
   </div>
 </div>
 </div>
@@ -62,7 +62,15 @@
         <td>{{ $user->cpf }}</td>
         <td>{{ date('d/m/Y - H:i', strtotime($user->user->created_at)) }}</td>
         <td>
+          <div class="d-flex" >
+            <div>
           <a class="btn btn-warning" href="{{ route('users.show', $user->id) }}">visualizar</a>
+          </div>
+          <div style="margin-left:10px; ">
+          <a class="btn btn-dark" href="{{ route('users.user-order', $user->user_id) }}">visualizar pedidos</a>
+          </div>  
+        </div>
+          
         </td>
 
       </tr>
