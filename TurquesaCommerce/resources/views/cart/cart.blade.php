@@ -142,7 +142,7 @@
       <h5>R$ {{number_format($total_pedido,2,',','.')}}</h5>
       <form action="{{ route('payment') }}" method="post">
         {{ csrf_field() }}
-        <input type="hidden" name="amount" value="200"><br>
+        <input type="hidden" name="amount" value="{{$total_pedido}}"><br>
         <button class="btn btn-primary" type="submit">
           Concluir a compra
         </button>

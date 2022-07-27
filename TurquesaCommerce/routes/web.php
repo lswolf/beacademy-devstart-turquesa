@@ -91,6 +91,8 @@ Route::middleware([
 
 Route::get('/contato', [ContactController::class, 'viewForm'])->name('contact.contact');
 
+
+/*          PayPal Api Routes                                       */
 Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
 Route::get('success', [PaymentController::class, 'success']);
 Route::get('error', [PaymentController:: class, 'error']);

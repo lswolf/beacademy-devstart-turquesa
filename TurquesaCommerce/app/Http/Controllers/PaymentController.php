@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use Illuminate\Http\Request;
 use Omnipay\Omnipay;
+use App\Models\User;
+use App\Models\Order;
+use Illuminate\Support\Facades\Auth;
+
 
 class PaymentController extends Controller
 {
@@ -40,6 +44,7 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
+        $user = User::find(Auth::id());
         if($request->input('paymentId') && $request->input('PayerID')) {
             $transaction = $this->gateway->completePurchase(array(
                 'payer_id' => $request->input('PayerID'),
@@ -53,15 +58,18 @@ class PaymentController extends Controller
 
                 $payment = new Payment();
                 $payment->payment_id = $arr['id'];
-                $payment->payer_id = $arr['payer']['payer_info']['payer_id'];
-                $payment->payer_email = $arr['payer']['payer_info']['email'];
+                $payment->payer_id = Auth::id();
+                $payment->payer_email = $user->email;
                 $payment->amount = $arr['transactions'][0]['amount']['total'];
                 $payment->currency = env('PAYPAL_CURRENCY');
                 $payment->payment_status = $arr['state'];
 
                 $payment->save();
+                Order::where('user_id', Auth::id())
+                    ->where('status', 'RE')
+                    ->update(['status' => 'approved']);
 
-                return "Pagamento bem-sucedido. Seu id de transação é ". $arr['id'];
+                return redirect()->route('viewcart')->with('cartAdd', 'Compra efetuada com sucesso!');;
 
             }   else {
                 return $response->getMessage();
@@ -74,6 +82,6 @@ class PaymentController extends Controller
 
     public function error()
     {
-        return 'O usuário cancelou o pagamento!';
+        return redirect()->route('viewcart');
     }
 }
