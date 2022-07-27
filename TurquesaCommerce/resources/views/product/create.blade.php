@@ -30,7 +30,7 @@
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" >
     <a class="dropdown-item" href="{{route('users.index')}}">lista de usuarios</a>
-    
+
   </div>
 </div>
 </div>
