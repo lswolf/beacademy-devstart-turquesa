@@ -6,10 +6,11 @@
 </div>
 <div class="container section-category">
   <h2>Livros</h2>
-  <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
+  <div id="carouselExampleControls" class="carousel " data-bs-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active ">
-        <a href="{{route('products.products_item_id',['idcategory'=>1])}}"><img src="/img/categoria1.png" class=" w-20" alt="..."></a>
+        <a href="{{route('products.products_item_id',['idcategory'=>1])}}">
+          <img src="/img/categoria1.png" class=" w-20" alt="..."></a>
         <a href="{{route('products.products_item_id',['idcategory'=>2])}}">
           <img src="/img/categoria2.png" class="w-20" alt="..."></a>
         <a href="{{route('products.products_item_id',['idcategory'=>3])}}">
