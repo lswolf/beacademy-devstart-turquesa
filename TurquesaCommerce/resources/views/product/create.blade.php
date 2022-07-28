@@ -8,6 +8,7 @@
   <a class="btn btn-outline-dark " href="{{ route('products.index') }}" role="button">Lista de Produtos</a>
   <a class="btn btn-outline-dark" href="{{ route('category.index') }}" role="button">Lista de Categorias</a>
   <a class="btn btn-outline-dark" href="{{ route('users.index') }}" role="button">Lista de Usuários</a>
+  <a class="btn btn-outline-dark" href="{{ route('orders.index') }}" role="button">Lista de Pedidos</a>
   <br>
   <br>
 
