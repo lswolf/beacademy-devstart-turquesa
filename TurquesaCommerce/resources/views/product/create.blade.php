@@ -74,10 +74,21 @@
       <label for="sale_price" class="form-label">Valor de venda</label>
       <input type="text" class="form-control form control-md" id="sale_price" name="sale_price">
     </div>
+
+
+
+
     <div class="mb-3">
-      <label for="category_id" class="form-label">ID Categoria</label>
-      <input type="text" class="form-control form control-md" id="category_id" name="category_id">
+      <label for="" class="form-label">Categoria</label>
+      <select class="form-select" aria-label="Default select example" name="category_id">
+
+        @foreach($categories as $category)
+        <option value="{{$category->id}}">{{$category->name}}</option>
+        @endforeach
+      </select>
     </div>
+
+
     <button type="submit" class="btn " style="color:#ffff; background:#00A3FF;">Enviar</button>
   </form>
 </div>
