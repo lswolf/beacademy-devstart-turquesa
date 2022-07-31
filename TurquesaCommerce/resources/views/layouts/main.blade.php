@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/css/style.css">
 
   <title>@yield('title')</title>
-  @yield('scriptsjs')
+  
 </head>
 
 <body>
@@ -182,6 +182,8 @@
         <br>
       </nav>
   </footer>
+  @yield('scriptsjs')
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
 </html>
