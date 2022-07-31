@@ -77,6 +77,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="top:5px">
                 <a class="dropdown-item" href="/users/perfil">perfil</a>
+                <a class="dropdown-item" href="/users/orders">meus pedidos</a>
                 <form class="dropdown-item" action="/logout" method="post">
                   @csrf
                   <a href=" /logout" class="nav-link" onclick="event.preventDefault();

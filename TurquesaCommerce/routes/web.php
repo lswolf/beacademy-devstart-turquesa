@@ -5,6 +5,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Models\Payment;
@@ -43,6 +44,9 @@ Route::prefix('products')->group(function () {
     Route::match(['get', 'post'], '/products-item/{idcategory?}', [ProductController::class, 'products_item'])->name('products.products_item_id');
 });
 
+Route::prefix('orders')->group(function () {
+});
+
 
 Route::prefix('categoria')->group(function () {
     Route::match(['get', 'post'], '', [CategoryController::class, 'index'])->name('category.index')->middleware('can:admin');
@@ -67,6 +71,8 @@ Route::prefix('users')->group(function () {
     Route::put('/edit/{id}', [UserController::class, 'update'])->name('users.update');
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
+    Route::match(['get', 'post'], '/orders', [OrderController::class, 'index'])->name('orders.index');
+
 });;
 
 Route::prefix('carrinho')->group(
