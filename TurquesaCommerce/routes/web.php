@@ -63,6 +63,7 @@ Route::prefix('admin')->group(function () {
     Route::match(['get', 'post'],'/pedido/editar/{id}', [AdminController::class, 'order_edit'])->name('users.order_edit');
     Route::put( '/pedido/update/{id}', [AdminController::class, 'order_update'])->name('users.order_update');
     Route::delete( '/pedido/{id}', [AdminController::class, 'order_del'])->name('users.order_del');
+    Route::delete( '/ordem/{id}', [AdminController::class, 'order_del_all'])->name('users.order_del_all');
 });
 
 

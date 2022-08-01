@@ -67,7 +67,7 @@ class PaymentController extends Controller
                 $payment->save();
                 Order::where('user_id', Auth::id())
                     ->where('status', 'RE')
-                    ->update(['status' => 'approved']);
+                    ->update(['status' => 'PA']);
 
                 return redirect()->route('viewcart')->with('cartAdd', 'Compra efetuada com sucesso!');;
 

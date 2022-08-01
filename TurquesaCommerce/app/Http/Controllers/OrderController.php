@@ -17,7 +17,7 @@ class OrderController extends Controller
 
         $orders = Order::all()
                 ->where('user_id', Auth::id())
-                ->whereIn('status', 'approved');
+                ->whereIn('status', 'PA');
 
 
         $orders = json_decode($orders, true);
@@ -30,13 +30,21 @@ class OrderController extends Controller
         $products = DB::table('orders')
             ->join('card_products', 'orders.id', '=', 'card_products.order_id')
             ->join('products', 'card_products.product_id', '=', 'products.id')
-            ->addSelect(DB::raw('DISTINCT products.name'), 'orders.id', 'orders.status', 'products.photo')
+            ->addSelect(DB::raw('DISTINCT products.name'), 'orders.id', 'orders.status', 'products.photo', 'products.sale_price')
+            ->wherein('orders.id', $orders_id)
+            ->get();
+
+            $Allproducts = DB::table('orders')
+            ->join('card_products', 'orders.id', '=', 'card_products.order_id')
+            ->join('products', 'card_products.product_id', '=', 'products.id')
+            ->addSelect('products.name', 'orders.id', 'orders.status', 'products.photo', 'products.sale_price')
             ->wherein('orders.id', $orders_id)
             ->get();
 
         $products = json_decode($products, true);
-
-        return view('orders.index', compact('orders', 'orders_id', 'products'));
+        $Allproducts = json_decode($Allproducts, true);
+       // dd($Allproducts);
+        return view('orders.index', compact('orders', 'orders_id', 'products', 'Allproducts'));
 
     }
 }

@@ -65,6 +65,11 @@
         @endif
       @forelse ($aproved as $order)
       <h5> Pedido: {{ $order->id }} </h5>
+      <form action="{{ route('users.order_del_all', $order->id) }}" method="post">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger delet-btn">Deletar Pedido</button>
+          </form>
       <h5> Criado em: {{ $order->created_at->format('d/m/Y H:i') }} </h5>
 
         <table class="table">
