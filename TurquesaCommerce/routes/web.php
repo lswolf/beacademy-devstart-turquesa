@@ -58,6 +58,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/users', [AdminController::class, 'index'])->name('users.index');
     Route::put('/edituser/{id}', [AdminController::class, 'update_user'])->name('users.update_user');
     Route::delete('/{id}', [AdminController::class, 'destroy'])->name('users.destroy');
+    Route::match(['get', 'post'], '/user-order/{id}', [AdminController::class, 'user_order'])->name('users.user-order');
+    Route::match(['get', 'post'],'/pedido/editar/{id}', [AdminController::class, 'order_edit'])->name('users.order_edit');
+    Route::put( '/pedido/update/{id}', [AdminController::class, 'order_update'])->name('users.order_update');
+    Route::delete( '/pedido/{id}', [AdminController::class, 'order_del'])->name('users.order_del');
 });
 
 

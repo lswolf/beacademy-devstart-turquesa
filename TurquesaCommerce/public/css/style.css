@@ -65,8 +65,9 @@ height: 30px;
 	display: block;
 	position: absolute;
 	transform: translate3d(20px, 60px, 100px); 
-	top: 5px;
+	top: -23px;
 	left: 0px;
+  right: 50px;
 	will-change: transform;
 }
 .dropdown {
