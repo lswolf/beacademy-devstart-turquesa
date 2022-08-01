@@ -3,9 +3,12 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
+use App\Models\Payment;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use Illuminate\Support\Facades\Request;
@@ -60,6 +63,7 @@ Route::prefix('admin')->group(function () {
     Route::match(['get', 'post'],'/pedido/editar/{id}', [AdminController::class, 'order_edit'])->name('users.order_edit');
     Route::put( '/pedido/update/{id}', [AdminController::class, 'order_update'])->name('users.order_update');
     Route::delete( '/pedido/{id}', [AdminController::class, 'order_del'])->name('users.order_del');
+    Route::delete( '/ordem/{id}', [AdminController::class, 'order_del_all'])->name('users.order_del_all');
 });
 
 
@@ -69,7 +73,9 @@ Route::prefix('users')->group(function () {
     Route::put('/edit/{id}', [UserController::class, 'update'])->name('users.update');
     Route::match(['get', 'post'], '/perfil/create', [UserController::class, 'profile_create'])->name('users.profile_create');
     Route::match(['get', 'post'], '/perfil', [UserController::class, 'profile'])->name('users.profile');
+    Route::match(['get', 'post'], '/orders', [OrderController::class, 'index'])->name('orders.index');
 });;
+
 Route::prefix('carrinho')->group(
     function () {
 
@@ -91,3 +97,9 @@ Route::middleware([
 });
 
 Route::get('/contato', [ContactController::class, 'viewForm'])->name('contact.contact');
+
+
+/*          PayPal Api Routes                                       */
+Route::post('pay', [PaymentController::class, 'pay'])->name('payment');
+Route::get('success', [PaymentController::class, 'success']);
+Route::get('error', [PaymentController:: class, 'error']);

@@ -140,9 +140,9 @@
     <div class="card-body">       
       <h5><b>Total do carrinho:</b></h5><br>
       <h5>R$ {{number_format($total_pedido,2,',','.')}}</h5>
-      <form action="" method="post">
+      <form action="{{ route('payment') }}" method="post">
         {{ csrf_field() }}
-        <input type="hidden" name="request_id" value="{{$orders->id}}"><br>
+        <input type="hidden" name="amount" value="{{$total_pedido}}"><br>
         <button class="btn btn-primary" type="submit">
           Concluir a compra
         </button>

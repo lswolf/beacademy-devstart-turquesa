@@ -81,7 +81,14 @@ class AdminController extends Controller
     public function order_del($id)
     {
         CardProduct::findOrfail($id)->delete();
-     
+        
+       return redirect('/admin/users');
+    } 
+
+    public function order_del_all($id)
+    {
+        Order::find($id)->delete();
+        
        return redirect('/admin/users');
     } 
   
