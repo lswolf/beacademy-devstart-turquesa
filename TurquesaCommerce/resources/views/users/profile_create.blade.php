@@ -16,7 +16,7 @@ $(function() {
   <br>
   <h1>Cadastrar dados</h1>
 
-  <form action="{{ route('users.store') }}" method="POST">
+  <form class="mb-4" action="{{ route('users.store') }}" method="POST">
     @csrf
 
 

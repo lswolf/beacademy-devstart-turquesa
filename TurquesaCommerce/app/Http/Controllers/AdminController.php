@@ -27,11 +27,20 @@ class AdminController extends Controller
     }
     public function update_user(Request $request, $id)
     {
+        
+         $client =Client::findOrfail($id);
+         $client->phone = $request->phone;
+         $client->address = $request->address;
+         $client->birth_date = $request->birth_date;
+         $client->cpf = $request->cpf;
+         $client->update();
+        $user = User::findOrfail($request->id);
+        $user->email = $request->email;
+        $user->name = $request->name;
+        $user->update();
+       
 
-        Client::findOrfail($request->id)->update($request->all());
-        User::findOrfail($request->id)->update($request->all());
-
-        return redirect()->back();
+        return redirect('/admin/users');
     }
     public function destroy($id)
     {

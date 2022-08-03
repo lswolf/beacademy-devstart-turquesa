@@ -14,10 +14,11 @@ $(function() {
 
 <div class="container">
   @foreach($users as $user)
+  @if($user->id == $id)
   
   <h1>Alterar dados de {{$user->user->name}} </h1>
   <a href="{{route('users.index')}}" class="btn btn-outline-dark">Voltar para a lista</a>
-  <form action="{{ route('users.update_user',$user->id) }}" method="post">
+  <form class="mb-4" action="{{ route('users.update_user',$user->user->id,$user->id) }}" method="post">
     @csrf
     @method('put')
     <div class="mb-3">
@@ -37,8 +38,8 @@ $(function() {
       <input type="text" class="form-control" value="{{$user->address}}" id="address" name="address">
     </div>
     <div class="mb-3">
-      <label for="birth_date}" class="form-label">Data de nascimento</label>
-      <input type="date" class="form-control" value="{{$user->birth_date}}" id="birth_date}" name="birth_date}">
+      <label for="birth_date" class="form-label">Data de nascimento</label>
+      <input type="date" class="form-control" value="{{$user->birth_date}}" id="birth_date" name="birth_date">
     </div>
     <div class="mb-3">
       <label for="cpf" class="form-label">Data de nascimento</label>
@@ -47,14 +48,10 @@ $(function() {
 
 
 
-    <button type="submit" class="btn btn-primary">editar</button>
+    <button type="submit " class="btn btn-primary">editar</button>
   </form>
-  <form action="" method="post">
-    @csrf
-    @method('delete')
-    <button type="submit">Deletar</button>
-  </form>
-  
+
+  @endif
   @endforeach
 </div>
 @endsection
