@@ -18,12 +18,12 @@
 
 {{-- Action Button --}}
 @isset($actionText)
-<?php
-    $color = match ($level) {
-        'success', 'error' => $level,
-        default => 'primary',
-    };
-?>
+//<?php
+  //  $color = match ($level) {
+    //    'success', 'error' => $level,
+      //  default => 'primary',
+    //};
+//?>
 @component('mail::button', ['url' => $actionUrl, 'color' => $color])
 {{ $actionText }}
 @endcomponent
