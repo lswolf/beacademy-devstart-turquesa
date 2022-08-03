@@ -27,10 +27,10 @@ class AdminController extends Controller
     }
     public function update_user(Request $request, $id)
     {
-
+        //dd($request);
         Client::findOrfail($request->id)->update($request->all());
         User::findOrfail($request->id)->update($request->all());
-
+        
         return redirect()->back();
     }
     public function destroy($id)
