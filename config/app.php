@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://127.0.0.1:8000'),
+    'url' => env('APP_URL', 'https://turquesacommerce.herokuapp.com/'),
 
     'asset_url' => env('ASSET_URL'),
 
@@ -121,7 +121,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY'),
+    'key' => '&6lOWxWx&w!9lmLOSvkOw#TlfI^D$cXx',
 
     'cipher' => 'AES-256-CBC',
 
