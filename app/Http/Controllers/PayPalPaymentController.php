@@ -21,8 +21,8 @@ class PayPalPaymentController extends Controller
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] =  $request->amount;
   
-        $paypalModule = new ExpressCheckout;
-  
+        $paypalModule = PayPal::setProvider('express_checkout');;
+
         $res = $paypalModule->setExpressCheckout($product);
         
   
@@ -36,7 +36,7 @@ class PayPalPaymentController extends Controller
   
     public function paymentSuccess(Request $request)
     {
-        $paypalModule = new ExpressCheckout;
+        $paypalModule = PayPal::setProvider('express_checkout');;
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
