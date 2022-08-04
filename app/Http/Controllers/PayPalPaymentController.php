@@ -1,8 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Services\AdaptivePayments;
-use Srmklive\PayPal\Services\ExpressCheckout;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 class PayPalPaymentController extends Controller
 {
     public function handlePayment(Request $request)
@@ -22,9 +21,9 @@ class PayPalPaymentController extends Controller
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] =  $request->amount;
   
-        $paypalModule = new ExpressCheckout();
+        $paypalModule =  new PayPalClient;
 
-        $res = $paypalModule->setExpressCheckout($product);
+        $res = $paypalModule->createOrder($product);
         
   
         return redirect($res['paypal_link']);
