@@ -100,6 +100,6 @@ Route::get('/contato', [ContactController::class, 'viewForm'])->name('contact.co
 
 
 /*          PayPal Api Routes                                       */
-Route::get('handle-payment', 'PayPalPaymentController@handlePayment')->name('make.payment');
-Route::get('cancel-payment', 'PayPalPaymentController@paymentCancel')->name('cancel.payment');
-Route::get('payment-success', 'PayPalPaymentController@paymentSuccess')->name('success.payment');
+Route::get('handle-payment', [PayPalPaymentController::class, 'handlePayment'])->name('make.payment');
+Route::get('cancel-payment', [PayPalPaymentController::class, 'paymentCancel'])->name('cancel.payment');
+Route::get('payment-success', [PayPalPaymentController::class, 'paymentSuccess'])->name('success.payment');
