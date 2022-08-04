@@ -140,7 +140,7 @@
     <div class="card-body">       
       <h5><b>Total do carrinho:</b></h5><br>
       <h5>R$ {{number_format($total_pedido,2,',','.')}}</h5>
-      <form action="{{ route('handle-payment') }}" method="post">
+      <form action="{{ route('make.payment') }}" method="post">
         {{ csrf_field() }}
         <input type="hidden" name='order_id' value="{{$orders->id}}">
         <input type="hidden" name='products' value="{{$order}}">
