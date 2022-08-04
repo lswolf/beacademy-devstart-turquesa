@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Srmklive\PayPal\Services\AdaptivePayments;
 use Srmklive\PayPal\Services\ExpressCheckout;
 class PayPalPaymentController extends Controller
 {
@@ -21,7 +22,7 @@ class PayPalPaymentController extends Controller
         $product['cancel_url'] = route('cancel.payment');
         $product['total'] =  $request->amount;
   
-        $paypalModule = PayPal::setProvider('express_checkout');;
+        $paypalModule = new ExpressCheckout();
 
         $res = $paypalModule->setExpressCheckout($product);
         
@@ -36,7 +37,7 @@ class PayPalPaymentController extends Controller
   
     public function paymentSuccess(Request $request)
     {
-        $paypalModule = PayPal::setProvider('express_checkout');;
+        $paypalModule = new ExpressCheckout();
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
