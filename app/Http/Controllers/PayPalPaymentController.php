@@ -1,7 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use Srmklive\PayPal\Services\ExpressCheckout;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 class PayPalPaymentController extends Controller
 {
     public function handlePayment(Request $request)
@@ -19,12 +19,12 @@ class PayPalPaymentController extends Controller
         $product['invoice_description'] = "Ordem #{$product['invoice_id']} pedido";
         $product['return_url'] = route('success.payment');
         $product['cancel_url'] = route('cancel.payment');
-        $product['total'] = 224;
+        $product['total'] =  $request->amount;
   
-        $paypalModule = new ExpressCheckout;
-  
-        $res = $paypalModule->setExpressCheckout($product);
-        $res = $paypalModule->setExpressCheckout($product, true);
+        $paypalModule =  new PayPalClient;
+
+        $res = $paypalModule->createOrder($product);
+        
   
         return redirect($res['paypal_link']);
     }
@@ -36,7 +36,7 @@ class PayPalPaymentController extends Controller
   
     public function paymentSuccess(Request $request)
     {
-        $paypalModule = new ExpressCheckout;
+        $paypalModule = new ExpressCheckout();
         $response = $paypalModule->getExpressCheckoutDetails($request->token);
   
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
