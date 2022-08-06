@@ -28,7 +28,7 @@ Apesar de constar em histórico a assinatura de um ou outro colaborador, diversa
 ## Colaboradores:
 
 
-[<img src="https://avatars.githubusercontent.com/u/91139419?v=4" width=115><br> Pablo Henrique</sub>](https://github.com/Pablohenrique2) | Fez a criação da arte do Figma, aplicou o front utilizando Bootstrap e Css, implantou jquerys para mascara de CPF e outras funções. Foi a peça fundamental do nosso projeto.
+[<img src="https://avatars.githubusercontent.com/u/91139419?v=4" width=115><br> Pablo Henrique</sub>](https://github.com/Pablohenrique2) | Fez a criação da arte do Figma, aplicou o front utilizando Bootstrap e Css, implantou jquerys para mascara de CPF e outras funções. Foi a peça fundamental do nosso projeto tanto no front quanto no back na criação de varias funcionalidades.
 
 
 [<img src="https://avatars.githubusercontent.com/u/84135240?v=4" width=115><br> Erick Amorim</sub>](https://github.com/amcarv1) | Alem de diversas atividades do backend, fez toda implantação da API de checkout e trabalhou ativamente no auxilio da equipe.
